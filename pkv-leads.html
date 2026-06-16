@@ -264,6 +264,30 @@
 
   /* PAGE WRAPPER */
   #main-page { }
+
+  @media(max-width:640px){
+    section { padding: 2.5rem 1.25rem; }
+    .why-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .bottom-cta { margin: 0 1rem 3rem; padding: 2rem 1.25rem; }
+    .section-title { font-size: 1.4rem; }
+    footer { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .trust-row { gap: 0.6rem; }
+    .form-card-header { padding: 1.25rem; }
+    .form-body { padding: 1.25rem; }
+    .option-grid { grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+    .option-card { padding: 0.6rem 0.65rem; font-size: 0.78rem; }
+    .option-card .icon { width: 24px; height: 24px; font-size: 0.8rem; }
+
+    .stats-row { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .stats-row > div[style*="width:1px"] { display: none; }
+
+    .zitat-inner { padding: 1.5rem 1.25rem; }
+
+    h1 { font-size: 1.7rem; }
+    .hero-sub { font-size: 0.95rem; }
+    .proof-row { flex-wrap: wrap; }
+  }
 </style>
 </head>
 <body>
@@ -502,7 +526,7 @@
   <p class="section-sub">Dank Beihilfe zahlt Ihr Dienstherr einen Großteil Ihrer Krankenkosten — Sie versichern nur den Rest.</p>
 
   <!-- Big Stats -->
-  <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem;margin-bottom:2.5rem;align-items:center;">
+  <div class="stats-row" style="display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem;margin-bottom:2.5rem;align-items:center;">
     <div style="text-align:center;">
       <div style="font-size:clamp(2.2rem,5vw,3rem);font-weight:700;color:var(--c-blue);letter-spacing:-0.04em;line-height:1;">61%</div>
       <div style="font-size:0.78rem;color:var(--c-muted);margin-top:4px;">max. Ersparnis ggü. GKV</div>
@@ -653,7 +677,7 @@
 
 <!-- ZITAT -->
 <section style="padding-top:3rem;padding-bottom:3rem;">
-  <div style="background:var(--c-ink);border-radius:20px;padding:2.5rem 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;align-items:center;">
+  <div class="zitat-inner" style="background:var(--c-ink);border-radius:20px;padding:2.5rem 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;align-items:center;">
     <div>
       <div style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;color:var(--c-sky);text-transform:uppercase;margin-bottom:1rem;">Das sagen unsere Kunden</div>
       <blockquote style="font-size:clamp(1.05rem,2.5vw,1.3rem);font-weight:500;color:#fff;line-height:1.55;letter-spacing:-0.01em;margin:0 0 1.25rem;">
