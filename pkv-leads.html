@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PKV für Beamte — Kostenloses Angebot erhalten</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --c-ink: #030039;
+    --c-blue: #2200c8;
+    --c-sky: #51bdff;
+    --c-bg: #fafaf7;
+    --c-muted: #6b7280;
+    --c-border: rgba(3,0,57,0.1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--c-bg); color: var(--c-ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(250,250,247,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--c-border); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--c-ink); letter-spacing: -0.02em; }
+  .logo span { color: var(--c-blue); }
+  .nav-cta { background: var(--c-ink); color: #fff; border: none; border-radius: 100px; padding: 0.5rem 1.25rem; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+  .nav-cta:hover { background: var(--c-blue); }
+
+  /* HERO */
+  .hero { max-width: 1100px; margin: 0 auto; padding: 5rem 1.5rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  @media(max-width:768px){ .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem 2rem; } }
+  .hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(34,0,200,0.08); color: var(--c-blue); border-radius: 100px; padding: 0.3rem 0.85rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 1.25rem; }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--c-blue); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+  h1 { font-size: clamp(2rem, 4vw, 2.85rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; color: var(--c-ink); }
+  h1 em { font-style: normal; color: var(--c-blue); }
+  .hero-sub { margin-top: 1rem; font-size: 1.05rem; color: var(--c-muted); max-width: 440px; }
+  .trust-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+  .trust-pill { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(--c-muted); font-weight: 500; }
+  .trust-pill svg { color: #16a34a; flex-shrink: 0; }
+
+  /* FORM CARD */
+  .form-card {
+    background: #fff;
+    border-radius: 24px;
+    border: 1px solid rgba(3,0,57,0.08);
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(3,0,57,0.04), 0 8px 32px rgba(3,0,57,0.08), 0 32px 64px rgba(3,0,57,0.06);
+    overflow: hidden;
+    position: relative;
+  }
+  .form-card-header {
+    background: linear-gradient(135deg, var(--c-ink) 0%, #1a0070 60%, var(--c-blue) 100%);
+    padding: 1.5rem 1.75rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .form-card-header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(81,189,255,0.12);
+  }
+  .form-card-header::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; left: 30%;
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .form-header-badge {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px; padding: 0.2rem 0.7rem;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em;
+    margin-bottom: 0.6rem; position: relative;
+  }
+  .form-header-badge::before {
+    content: ''; width: 5px; height: 5px;
+    background: #51fdce; border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  .form-title {
+    font-size: 1.15rem; font-weight: 700; color: #fff;
+    letter-spacing: -0.02em; margin-bottom: 0.2rem; position: relative;
+  }
+  .form-sub {
+    font-size: 0.8rem; color: rgba(255,255,255,0.65);
+    position: relative;
+  }
+  .form-body { padding: 1.5rem 1.75rem 1.75rem; }
+
+  /* PROGRESS */
+  .progress-wrap { margin-bottom: 1.25rem; }
+  .progress-bar { display: flex; gap: 5px; margin-bottom: 0.5rem; }
+  .progress-seg { height: 3px; flex: 1; border-radius: 100px; background: rgba(3,0,57,0.08); transition: background 0.35s ease; }
+  .progress-seg.active { background: var(--c-blue); }
+  .progress-seg.done { background: var(--c-ink); }
+  .step-label { font-size: 0.72rem; color: var(--c-muted); font-weight: 500; letter-spacing: 0.01em; }
+
+  /* FORM ELEMENTS */
+  .form-step { display: none; animation: fadeIn 0.28s cubic-bezier(.4,0,.2,1); }
+  .form-step.active { display: block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+  label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--c-ink); margin-bottom: 0.45rem; letter-spacing: 0.01em; }
+  input[type="text"], input[type="email"], input[type="tel"], select {
+    width: 100%;
+    border: 1.5px solid rgba(3,0,57,0.13);
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.88rem;
+    color: var(--c-ink);
+    background: #fafaf7;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    outline: none;
+    font-family: inherit;
+    -webkit-appearance: none;
+  }
+  input:focus, select:focus {
+    border-color: var(--c-blue);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(34,0,200,0.07);
+  }
+  input::placeholder { color: rgba(3,0,57,0.3); }
+  .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+  @media(max-width:400px){ .input-grid { grid-template-columns: 1fr; } }
+  .field { margin-bottom: 0.8rem; }
+
+  /* OPTION CARDS */
+  .option-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.8rem; }
+  .option-card {
+    border: 1.5px solid rgba(3,0,57,0.1);
+    border-radius: 11px;
+    padding: 0.7rem 0.8rem;
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s, transform 0.12s;
+    display: flex; align-items: center; gap: 0.55rem;
+    font-size: 0.82rem; font-weight: 600; color: var(--c-ink);
+    background: #fafaf7;
+    user-select: none;
+  }
+  .option-card:hover { border-color: rgba(34,0,200,0.3); background: #fff; transform: translateY(-1px); }
+  .option-card:active { transform: scale(0.98); }
+  .option-card.selected {
+    border-color: var(--c-blue);
+    background: rgba(34,0,200,0.05);
+    color: var(--c-blue);
+    box-shadow: 0 0 0 3px rgba(34,0,200,0.06);
+  }
+  .option-card .icon {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: rgba(3,0,57,0.06);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem; flex-shrink: 0; transition: background 0.18s;
+  }
+  .option-card.selected .icon { background: rgba(34,0,200,0.1); }
+
+  /* DIVIDER in form */
+  .form-divider { height: 1px; background: rgba(3,0,57,0.07); margin: 1rem 0; }
+
+  /* BUTTONS */
+  .btn-primary {
+    width: 100%; background: var(--c-ink); color: #fff; border: none;
+    border-radius: 12px; padding: 0.9rem 1.5rem;
+    font-size: 0.9rem; font-weight: 600; cursor: pointer;
+    transition: background 0.2s, transform 0.12s, box-shadow 0.2s;
+    font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    box-shadow: 0 2px 8px rgba(3,0,57,0.2), 0 1px 2px rgba(3,0,57,0.15);
+    letter-spacing: -0.01em;
+  }
+  .btn-primary:hover { background: var(--c-blue); box-shadow: 0 4px 16px rgba(34,0,200,0.3); transform: translateY(-1px); }
+  .btn-primary:active { transform: scale(0.98); box-shadow: none; }
+  .btn-submit { background: linear-gradient(135deg, #0a7a50, #16a34a); box-shadow: 0 2px 8px rgba(22,163,74,0.3); }
+  .btn-submit:hover { background: linear-gradient(135deg, #16a34a, #15803d); box-shadow: 0 4px 16px rgba(22,163,74,0.4); }
+  .btn-back { background: none; border: none; font-size: 0.78rem; color: var(--c-muted); cursor: pointer; padding: 0.5rem 0; font-family: inherit; margin-top: 0.65rem; display: flex; align-items: center; gap: 0.3rem; transition: color 0.15s; }
+  .btn-back:hover { color: var(--c-ink); }
+  .form-note { font-size: 0.71rem; color: var(--c-muted); text-align: center; margin-top: 0.7rem; line-height: 1.55; }
+  .form-note a { color: var(--c-blue); text-decoration: none; }
+
+  /* SECURITY ROW */
+  .security-row { display: flex; align-items: center; justify-content: center; gap: 0.35rem; font-size: 0.7rem; color: var(--c-muted); margin-top: 0.6rem; }
+  .security-row svg { color: #16a34a; flex-shrink: 0; }
+
+  /* SOCIAL PROOF BELOW FORM */
+  .proof-divider { height: 1px; background: rgba(3,0,57,0.07); margin: 1.1rem 0 0.9rem; }
+  .stars { color: #f59e0b; font-size: 0.85rem; letter-spacing: 1px; }
+  .proof-row { display: flex; align-items: center; gap: 0.65rem; }
+  .proof-avatars { display: flex; }
+  .proof-avatars span {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 2px solid #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.58rem; color: #fff; font-weight: 700;
+    margin-left: -7px;
+  }
+  .proof-avatars span:first-child { margin-left: 0; }
+  .av1 { background: #2200c8; }
+  .av2 { background: #1d4ed8; }
+  .av3 { background: #030039; }
+  .av4 { background: #51bdff; color: #030039 !important; }
+  .proof-text { font-size: 0.75rem; color: var(--c-muted); line-height: 1.4; }
+  .proof-text strong { color: var(--c-ink); font-weight: 600; }
+
+  /* SECTION */
+  section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+  .section-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; color: var(--c-blue); text-transform: uppercase; margin-bottom: 0.75rem; }
+  .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -0.025em; color: var(--c-ink); max-width: 560px; line-height: 1.2; }
+  .section-sub { font-size: 1rem; color: var(--c-muted); max-width: 520px; margin-top: 0.75rem; }
+  .divider { height: 1px; background: var(--c-border); max-width: 1100px; margin: 0 auto; }
+
+  /* WHY GRID */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+  .why-card { background: #fff; border: 1px solid var(--c-border); border-radius: 16px; padding: 1.5rem; transition: box-shadow 0.2s, transform 0.2s; }
+  .why-card:hover { box-shadow: 0 6px 24px rgba(3,0,57,0.08); transform: translateY(-2px); }
+  .why-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(34,0,200,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.2rem; }
+  .why-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .why-card p { font-size: 0.85rem; color: var(--c-muted); line-height: 1.6; }
+
+  /* STEPS */
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 2.5rem; position: relative; }
+  .step-item { text-align: center; padding: 1.5rem 1rem; }
+  .step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--c-ink); color: #fff; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+  .step-item h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.35rem; }
+  .step-item p { font-size: 0.82rem; color: var(--c-muted); }
+
+  /* FAQ */
+  .faq-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .faq-item { background: #fff; border: 1px solid var(--c-border); border-radius: 12px; overflow: hidden; }
+  .faq-q { padding: 1rem 1.25rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .faq-q svg { flex-shrink: 0; transition: transform 0.25s; color: var(--c-muted); }
+  .faq-item[data-open] .faq-q svg { transform: rotate(180deg); }
+  .faq-a { display: none; padding: 0 1.25rem 1rem; font-size: 0.85rem; color: var(--c-muted); line-height: 1.7; border-top: 1px solid var(--c-border); padding-top: 0.85rem; }
+  .faq-item[data-open] .faq-a { display: block; }
+
+  /* BOTTOM CTA */
+  .bottom-cta { background: var(--c-ink); border-radius: 20px; padding: 3rem 2rem; text-align: center; margin: 0 1.5rem 4rem; }
+  .bottom-cta h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+  .bottom-cta p { color: rgba(255,255,255,0.65); font-size: 0.95rem; margin-bottom: 1.75rem; }
+  .btn-cta-white { display: inline-block; background: #fff; color: var(--c-ink); border: none; border-radius: 100px; padding: 0.85rem 2rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s; font-family: inherit; text-decoration: none; }
+  .btn-cta-white:hover { background: var(--c-sky); color: var(--c-ink); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--c-border); padding: 2rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer p { font-size: 0.8rem; color: var(--c-muted); }
+  footer a { font-size: 0.8rem; color: var(--c-muted); text-decoration: none; }
+  footer a:hover { color: var(--c-ink); }
+
+  /* THANK YOU PAGE */
+  #thank-you { display: none; min-height: 80vh; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 1.5rem; }
+  #thank-you.visible { display: flex; }
+  .check-circle { width: 72px; height: 72px; border-radius: 50%; background: rgba(22,163,74,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+  .check-circle svg { color: #16a34a; }
+  #thank-you h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.75rem; }
+  #thank-you p { font-size: 1rem; color: var(--c-muted); max-width: 440px; }
+  .ty-steps { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; max-width: 360px; text-align: left; }
+  .ty-step { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.875rem; color: var(--c-muted); }
+  .ty-step-num { width: 22px; height: 22px; border-radius: 50%; background: var(--c-ink); color: #fff; font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+
+  /* PAGE WRAPPER */
+  #main-page { }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <img src="logo.png" alt="Aventus Logo" style="height:36px;width:auto;display:block;">
+    <a href="#formular" class="nav-cta">Kostenloses Angebot</a>
+  </div>
+</nav>
+
+<!-- MAIN PAGE -->
+<div id="main-page">
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-badge">Speziell für Beamte &amp; Beamtenanwärter</div>
+    <h1>Ihre Kollegen zahlen halb so viel. <em>Wissen Sie warum?</em></h1>
+    <p class="hero-sub">Als Beamter übernimmt Ihr Dienstherr bis zu 80 % Ihrer Krankenkosten — Sie versichern nur den Rest. Das bedeutet: Top-Leistungen für einen Bruchteil des GKV-Beitrags. Wir finden Ihr passendes Angebot.</p>
+    <div class="trust-row">
+      <span class="trust-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Kostenlos &amp; unverbindlich
+      </span>
+      <span class="trust-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Kein Direktabschluss nötig
+      </span>
+      <span class="trust-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Persönliche Beratung
+      </span>
+    </div>
+  </div>
+
+  <!-- FORM CARD -->
+  <div id="formular">
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-header-badge">Kostenlos &amp; unverbindlich</div>
+        <div class="form-title">Kostenlos Tarife vergleichen</div>
+        <div class="form-sub">In 2 Minuten — wir melden uns persönlich bei Ihnen.</div>
+      </div>
+      <div class="form-body">
+
+      <!-- Progress -->
+      <div class="progress-wrap">
+        <div class="progress-bar">
+          <div class="progress-seg active" id="seg1"></div>
+          <div class="progress-seg" id="seg2"></div>
+          <div class="progress-seg" id="seg3"></div>
+          <div class="progress-seg" id="seg4"></div>
+        </div>
+        <div class="step-label" id="step-label">Schritt 1 von 4 — Ihre Situation</div>
+      </div>
+
+      <!-- STEP 1: Situation -->
+      <div class="form-step active" id="step1">
+        <div class="field">
+          <label>Welcher Beamtenstatus trifft auf Sie zu?</label>
+          <div class="option-grid">
+            <div class="option-card" data-group="status" data-val="anwaerter" onclick="selectOption(this)">
+              <div class="icon">🎓</div>Beamtenanwärter
+            </div>
+            <div class="option-card" data-group="status" data-val="beamter" onclick="selectOption(this)">
+              <div class="icon">📋</div>Verbeamtet
+            </div>
+            <div class="option-card" data-group="status" data-val="wechsel" onclick="selectOption(this)">
+              <div class="icon">🔄</div>Möchte wechseln
+            </div>
+            <div class="option-card" data-group="status" data-val="unsicher" onclick="selectOption(this)">
+              <div class="icon">❓</div>Bin unsicher
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>In welchem Bundesland sind Sie tätig?</label>
+          <select id="bundesland">
+            <option value="">Bitte wählen...</option>
+            <option>Baden-Württemberg</option><option>Bayern</option><option>Berlin</option>
+            <option>Brandenburg</option><option>Bremen</option><option>Hamburg</option>
+            <option>Hessen</option><option>Mecklenburg-Vorpommern</option><option>Niedersachsen</option>
+            <option>Nordrhein-Westfalen</option><option>Rheinland-Pfalz</option><option>Saarland</option>
+            <option>Sachsen</option><option>Sachsen-Anhalt</option><option>Schleswig-Holstein</option>
+            <option>Thüringen</option><option>Bund (Bundesbeamter)</option>
+          </select>
+        </div>
+        <button class="btn-primary" onclick="goStep(2)">Weiter <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+        <p class="form-note">🔒 Ihre Daten sind sicher. Keine Weitergabe an Dritte.</p>
+      </div>
+
+      <!-- STEP 2: Situation Details -->
+      <div class="form-step" id="step2">
+        <div class="field">
+          <label>Wie ist Ihre aktuelle Versicherungssituation?</label>
+          <div class="option-grid">
+            <div class="option-card" data-group="situation" data-val="gkv" onclick="selectOption(this)">
+              <div class="icon">🏥</div>Noch GKV
+            </div>
+            <div class="option-card" data-group="situation" data-val="pkv" onclick="selectOption(this)">
+              <div class="icon">✅</div>Bereits PKV
+            </div>
+            <div class="option-card" data-group="situation" data-val="familienvers" onclick="selectOption(this)">
+              <div class="icon">👨‍👩‍👧</div>Familienversichert
+            </div>
+            <div class="option-card" data-group="situation" data-val="keine" onclick="selectOption(this)">
+              <div class="icon">❓</div>Noch keine
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Haben Sie Kinder oder Familienangehörige mitzuversichern?</label>
+          <div class="option-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="option-card" data-group="kinder" data-val="nein" onclick="selectOption(this)">
+              <div class="icon">🙋</div>Nein
+            </div>
+            <div class="option-card" data-group="kinder" data-val="kinder" onclick="selectOption(this)">
+              <div class="icon">👶</div>Kinder
+            </div>
+            <div class="option-card" data-group="kinder" data-val="partner" onclick="selectOption(this)">
+              <div class="icon">💑</div>Partner
+            </div>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="goStep(3)">Weiter <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+        <button class="btn-back" onclick="goStep(1)">← Zurück</button>
+      </div>
+
+      <!-- STEP 3: Wünsche -->
+      <div class="form-step" id="step3">
+        <div class="field">
+          <label>Was ist Ihnen bei Ihrer PKV besonders wichtig?</label>
+          <div class="option-grid">
+            <div class="option-card" data-group="prio" data-val="guenstig" onclick="selectOption(this)">
+              <div class="icon">💰</div>Günstiger Beitrag
+            </div>
+            <div class="option-card" data-group="prio" data-val="leistung" onclick="selectOption(this)">
+              <div class="icon">⭐</div>Top-Leistungen
+            </div>
+            <div class="option-card" data-group="prio" data-val="zahn" onclick="selectOption(this)">
+              <div class="icon">🦷</div>Guter Zahnschutz
+            </div>
+            <div class="option-card" data-group="prio" data-val="ausland" onclick="selectOption(this)">
+              <div class="icon">✈️</div>Auslandsschutz
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Ihr ungefähres Alter</label>
+          <select id="alter">
+            <option value="">Bitte wählen...</option>
+            <option>Unter 20 Jahre</option>
+            <option>20–25 Jahre</option>
+            <option>26–30 Jahre</option>
+            <option>31–35 Jahre</option>
+            <option>36–40 Jahre</option>
+            <option>41–50 Jahre</option>
+            <option>Über 50 Jahre</option>
+          </select>
+        </div>
+        <button class="btn-primary" onclick="goStep(4)">Weiter <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+        <button class="btn-back" onclick="goStep(2)">← Zurück</button>
+      </div>
+
+      <!-- STEP 4: Kontaktdaten -->
+      <div class="form-step" id="step4">
+        <div class="field">
+          <div class="input-grid">
+            <div>
+              <label>Vorname</label>
+              <input type="text" id="vorname" placeholder="Max">
+            </div>
+            <div>
+              <label>Nachname</label>
+              <input type="text" id="nachname" placeholder="Mustermann">
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>E-Mail-Adresse</label>
+          <input type="email" id="email" placeholder="max@beispiel.de">
+        </div>
+        <div class="field">
+          <label>Telefonnummer</label>
+          <input type="tel" id="telefon" placeholder="+49 123 456789">
+        </div>
+        <div class="field">
+          <label>Wann dürfen wir Sie am besten erreichen?</label>
+          <select id="erreichbar">
+            <option value="">Bitte wählen...</option>
+            <option>Morgens (8–12 Uhr)</option>
+            <option>Mittags (12–14 Uhr)</option>
+            <option>Nachmittags (14–17 Uhr)</option>
+            <option>Abends (17–19 Uhr)</option>
+            <option>Jederzeit</option>
+          </select>
+        </div>
+        <button class="btn-primary btn-submit" onclick="submitForm()">
+          Jetzt kostenlos anfragen
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </button>
+        <button class="btn-back" onclick="goStep(3)">← Zurück</button>
+        <p class="form-note">Mit dem Absenden stimmen Sie unserer <a href="#">Datenschutzerklärung</a> zu.</p>
+        <div class="security-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          SSL-verschlüsselt · Keine Weitergabe an Dritte · DSGVO-konform
+        </div>
+      </div>
+
+      <!-- Social Proof -->
+      <div class="proof-divider"></div>
+      <div class="proof-row">
+        <div class="proof-avatars">
+          <span class="av1">MK</span><span class="av2">TS</span><span class="av3">AL</span><span class="av4">+</span>
+        </div>
+        <div class="proof-text">
+          <div class="stars">★★★★★</div>
+          <strong>247 Beamte</strong> haben sich bereits beraten lassen
+        </div>
+      </div>
+
+      </div><!-- end form-body -->
+    </div>
+  </div>
+</div>
+<!-- END HERO -->
+
+<div class="divider"></div>
+
+<!-- RECHENBEISPIEL -->
+<section>
+  <div class="section-label">Was Beamte wirklich zahlen</div>
+  <h2 class="section-title">Bis zu <em style="font-style:normal;color:var(--c-blue)">61 % günstiger</em> als die GKV.</h2>
+  <p class="section-sub">Dank Beihilfe zahlt Ihr Dienstherr einen Großteil Ihrer Krankenkosten — Sie versichern nur den Rest.</p>
+
+  <!-- Big Stats -->
+  <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem;margin-bottom:2.5rem;align-items:center;">
+    <div style="text-align:center;">
+      <div style="font-size:clamp(2.2rem,5vw,3rem);font-weight:700;color:var(--c-blue);letter-spacing:-0.04em;line-height:1;">61%</div>
+      <div style="font-size:0.78rem;color:var(--c-muted);margin-top:4px;">max. Ersparnis ggü. GKV</div>
+    </div>
+    <div style="width:1px;height:48px;background:var(--c-border);"></div>
+    <div style="text-align:center;">
+      <div style="font-size:clamp(2.2rem,5vw,3rem);font-weight:700;color:var(--c-blue);letter-spacing:-0.04em;line-height:1;">50–80%</div>
+      <div style="font-size:0.78rem;color:var(--c-muted);margin-top:4px;">Beihilfe vom Dienstherren</div>
+    </div>
+    <div style="width:1px;height:48px;background:var(--c-border);"></div>
+    <div style="text-align:center;">
+      <div style="font-size:clamp(2.2rem,5vw,3rem);font-weight:700;color:var(--c-blue);letter-spacing:-0.04em;line-height:1;">Ø 118 €</div>
+      <div style="font-size:0.78rem;color:var(--c-muted);margin-top:4px;">mtl. Ersparnis unserer Kunden</div>
+    </div>
+  </div>
+
+  <!-- Profile Cards -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;">
+
+    <div style="background:#fff;border:1px solid var(--c-border);border-radius:16px;padding:1.5rem;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(34,0,200,0.08);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">👩‍🏫</div>
+        <div>
+          <div style="font-size:0.9rem;font-weight:700;color:var(--c-ink);">Lehrerin</div>
+          <div style="font-size:0.75rem;color:var(--c-muted);">24 Jahre · Bayern · keine Vorerkrankungen</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:1rem;">
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+          <span style="color:var(--c-muted);">GKV bisher</span>
+          <span style="text-decoration:line-through;color:var(--c-muted);">228 €/Mo.</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+          <span style="color:var(--c-muted);">PKV + Beihilfe</span>
+          <span style="font-weight:600;color:var(--c-blue);">89 €/Mo.</span>
+        </div>
+      </div>
+      <div style="background:#eaf3de;border-radius:10px;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-size:0.75rem;font-weight:600;color:#27500a;">Monatliche Ersparnis</div>
+          <div style="font-size:0.7rem;color:#3b6d11;">= 1.668 € pro Jahr</div>
+        </div>
+        <div style="font-size:1.15rem;font-weight:700;color:#27500a;">− 139 €</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--c-border);border-radius:16px;padding:1.5rem;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(34,0,200,0.08);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">👮</div>
+        <div>
+          <div style="font-size:0.9rem;font-weight:700;color:var(--c-ink);">Polizeibeamter</div>
+          <div style="font-size:0.75rem;color:var(--c-muted);">31 Jahre · NRW · 1 Kind</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:1rem;">
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+          <span style="color:var(--c-muted);">GKV bisher</span>
+          <span style="text-decoration:line-through;color:var(--c-muted);">312 €/Mo.</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+          <span style="color:var(--c-muted);">PKV + Beihilfe</span>
+          <span style="font-weight:600;color:var(--c-blue);">148 €/Mo.</span>
+        </div>
+      </div>
+      <div style="background:#eaf3de;border-radius:10px;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-size:0.75rem;font-weight:600;color:#27500a;">Monatliche Ersparnis</div>
+          <div style="font-size:0.7rem;color:#3b6d11;">= 1.968 € pro Jahr</div>
+        </div>
+        <div style="font-size:1.15rem;font-weight:700;color:#27500a;">− 164 €</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--c-border);border-radius:16px;padding:1.5rem;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+        <div style="width:38px;height:38px;border-radius:50%;background:rgba(34,0,200,0.08);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🏛️</div>
+        <div>
+          <div style="font-size:0.9rem;font-weight:700;color:var(--c-ink);">Verwaltungsbeamter</div>
+          <div style="font-size:0.75rem;color:var(--c-muted);">38 Jahre · Berlin · verheiratet</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:1rem;">
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+          <span style="color:var(--c-muted);">GKV bisher</span>
+          <span style="text-decoration:line-through;color:var(--c-muted);">287 €/Mo.</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
+          <span style="color:var(--c-muted);">PKV + Beihilfe</span>
+          <span style="font-weight:600;color:var(--c-blue);">121 €/Mo.</span>
+        </div>
+      </div>
+      <div style="background:#eaf3de;border-radius:10px;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-size:0.75rem;font-weight:600;color:#27500a;">Monatliche Ersparnis</div>
+          <div style="font-size:0.7rem;color:#3b6d11;">= 1.992 € pro Jahr</div>
+        </div>
+        <div style="font-size:1.15rem;font-weight:700;color:#27500a;">− 166 €</div>
+      </div>
+    </div>
+
+  </div>
+  <p style="font-size:0.72rem;color:var(--c-muted);margin-top:1rem;">* Beispielwerte auf Basis repräsentativer Tarife. Ihr individueller Beitrag kann abweichen.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY PKV -->
+<section>
+  <div class="section-label">Warum PKV?</div>
+  <h2 class="section-title">Beamte zahlen bis zu 50 % weniger — ohne Abstriche.</h2>
+  <p class="section-sub">Der Staat übernimmt als Dienstherr einen Teil Ihrer Krankenkosten (Beihilfe). Sie versichern nur den Rest — und sparen dabei erheblich.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">💡</div>
+      <h3>Beihilfe senkt Ihren Beitrag</h3>
+      <p>Als Beamter erhalten Sie 50–80 % Ihrer Arztkosten vom Dienstherren erstattet. Ihre PKV deckt nur den verbleibenden Teil ab — das reduziert Ihren Monatsbeitrag massiv.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏥</div>
+      <h3>Bessere Leistungen als GKV</h3>
+      <p>Chefarztbehandlung, Einbettzimmer, modernste Heilmethoden und kürzere Wartezeiten — die PKV bietet einen Leistungsumfang, der in der GKV so nicht möglich ist.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📉</div>
+      <h3>Günstiger Einstieg als Junger</h3>
+      <p>Je jünger und gesünder Sie einsteigen, desto günstiger bleibt Ihr Beitrag langfristig. Besonders als Beamtenanwärter ist der Zeitpunkt ideal.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔍</div>
+      <h3>Tarif-Dschungel? Wir navigieren.</h3>
+      <p>Über 40 private Krankenversicherer mit hunderten Tarifen — wir kennen den Markt und finden das Angebot, das wirklich zu Ihrer Situation und Ihrem Bundesland passt.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📞</div>
+      <h3>Persönlich und unverbindlich</h3>
+      <p>Kein Call-Center, kein Verkaufsdruck. Sie sprechen direkt mit einem Spezialisten der Ihre Fragen beantwortet — ohne Verpflichtung.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <h3>Individuelle Beratung</h3>
+      <p>Wir arbeiten mit über 40 Versicherern zusammen und sind keinem einzelnen Anbieter verpflichtet. Unser Ziel: das individuell beste Angebot für Sie — nicht das provisionsreichste.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ZITAT -->
+<section style="padding-top:3rem;padding-bottom:3rem;">
+  <div style="background:var(--c-ink);border-radius:20px;padding:2.5rem 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;align-items:center;">
+    <div>
+      <div style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;color:var(--c-sky);text-transform:uppercase;margin-bottom:1rem;">Das sagen unsere Kunden</div>
+      <blockquote style="font-size:clamp(1.05rem,2.5vw,1.3rem);font-weight:500;color:#fff;line-height:1.55;letter-spacing:-0.01em;margin:0 0 1.25rem;">
+        „Als Lehrerin war ich lange unsicher ob sich der Wechsel lohnt. Nach dem Gespräch war alles klar — und ich zahle jetzt <span style="color:var(--c-sky);font-weight:700;">139 € weniger</span> als vorher in der GKV."
+      </blockquote>
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <div style="width:40px;height:40px;border-radius:50%;background:rgba(81,189,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;">👩‍🏫</div>
+        <div>
+          <div style="font-size:0.85rem;font-weight:600;color:#fff;">Sarah M.</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);">Grundschullehrerin · Bayern · seit 2023 Kundin</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;">
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1rem 1.1rem;">
+        <div style="font-size:0.7rem;color:rgba(255,255,255,0.5);margin-bottom:0.3rem;">Polizeibeamter · NRW</div>
+        <div style="font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;">„Ich hätte nie gedacht, dass ich als Beamter so günstig an eine Top-PKV komme. Der Vergleich hat mich wirklich überrascht."</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1rem 1.1rem;">
+        <div style="font-size:0.7rem;color:rgba(255,255,255,0.5);margin-bottom:0.3rem;">Beamtenanwärter · Hamburg</div>
+        <div style="font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.5;">„Super unkompliziert, alles wurde verständlich erklärt. Kein Druck, keine Pflicht — und am Ende ein Angebot das wirklich passt."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="section-label">So funktioniert's</div>
+  <h2 class="section-title">In 3 Schritten zum richtigen Tarif.</h2>
+
+  <div class="steps-grid">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <h3>Formular ausfüllen</h3>
+      <p>2 Minuten, keine langen Fragebögen. Nur das Nötigste damit wir Ihre Situation verstehen.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <h3>Persönliches Gespräch</h3>
+      <p>Wir rufen Sie zurück — kostenlos, unverbindlich. Kein Druck, keine Verkaufsgespräche.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <h3>Ihr individuelles Angebot</h3>
+      <p>Wir schicken Ihnen einen übersichtlichen Vergleich passend zu Ihrer Situation und Ihrem Budget.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section>
+  <div class="section-label">Häufige Fragen</div>
+  <h2 class="section-title">Was Beamte am häufigsten fragen.</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Was ist Beihilfe und wie viel bekomme ich?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-a">Die Beihilfe ist eine staatliche Unterstützung für Beamte bei Krankheitskosten. Als Beamter ohne Kinder erhalten Sie in der Regel 50 % Ihrer Arztkosten vom Dienstherren erstattet. Mit Kindern steigt dieser Satz auf bis zu 70 % (für Sie) und 80 % (für Kinder). Den Rest deckt Ihre private Krankenversicherung ab — deshalb sind die Beiträge für Beamte so günstig.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Kann ich als Beamter auch in der GKV bleiben?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-a">Ja, das ist möglich — aber finanziell meist nachteilig. Als GKV-Mitglied erhalten Sie keine Beihilfe, müssen den vollen Beitrag selbst zahlen und erhalten dennoch keine Beihilfeleistungen. Die meisten Beamten fahren mit einer PKV deutlich günstiger und bekommen gleichzeitig bessere Leistungen.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Wann ist der beste Zeitpunkt für den PKV-Wechsel?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-a">So früh wie möglich — am besten bereits als Beamtenanwärter. Je jünger und gesünder Sie beim Einstieg sind, desto günstiger bleibt Ihr Beitrag. Vorerkrankungen können später die Aufnahme erschweren oder zu Risikozuschlägen führen. Wer bereits verbeamtet ist, sollte nicht länger warten.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Ist die Beratung wirklich kostenlos?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-a">Ja, absolut. Als Makler werden wir im Abschlussfall vom Versicherer vergütet — für Sie entstehen keinerlei Kosten. Auch wenn Sie sich gegen einen Abschluss entscheiden, ist die Beratung vollständig kostenlos und unverbindlich.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Was passiert mit meinen Daten?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-a">Ihre Daten werden ausschließlich für die Beratung genutzt und nicht an Dritte verkauft. Wir verarbeiten Ihre Angaben gemäß DSGVO ausschließlich zur Vorbereitung und Durchführung Ihrer persönlichen Beratung.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Welche Unterlagen brauche ich für die Beratung?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-a">Für das erste Gespräch gar nichts. Wir informieren Sie zunächst und erklären Ihre Optionen. Wenn Sie konkrete Angebote möchten, brauchen wir lediglich Ihren Beihilfebescheid oder die Information über Ihren Beihilfesatz sowie Angaben zu Vorerkrankungen — das besprechen wir gemeinsam.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<div style="max-width:1100px;margin:0 auto;">
+  <div class="bottom-cta">
+    <h2>Bereit für Ihre bessere Krankenversicherung?</h2>
+    <p>Kostenlos Tarife vergleichen — kein Risiko, keine Verpflichtung.</p>
+    <a href="#formular" class="btn-cta-white">Jetzt kostenlos anfragen →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="max-width:1100px">
+  <p>© 2025 Aventus Maklergruppe. Alle Rechte vorbehalten.</p>
+  <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+    <a href="#">Impressum</a>
+    <a href="#">Datenschutz</a>
+    <a href="#">Erstinformation</a>
+    <a href="#">Kontakt</a>
+  </div>
+</footer>
+
+</div><!-- END MAIN PAGE -->
+
+<!-- THANK YOU PAGE -->
+<div id="thank-you">
+  <div class="check-circle">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+  </div>
+  <h1>Vielen Dank!</h1>
+  <p>Ihre Anfrage ist bei uns eingegangen. Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen.</p>
+  <div class="ty-steps">
+    <div class="ty-step"><div class="ty-step-num">1</div><span>Sie erhalten in Kürze eine Bestätigungs-E-Mail.</span></div>
+    <div class="ty-step"><div class="ty-step-num">2</div><span>Unser Berater ruft Sie zum gewünschten Zeitpunkt an.</span></div>
+    <div class="ty-step"><div class="ty-step-num">3</div><span>Wir schicken Ihnen Ihren persönlichen Tarifvergleich zu.</span></div>
+  </div>
+</div>
+
+<script>
+  let currentStep = 1;
+  const totalSteps = 4;
+  const selections = {};
+
+  function selectOption(el) {
+    const group = el.dataset.group;
+    document.querySelectorAll(`[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    selections[group] = el.dataset.val;
+  }
+
+  function goStep(n) {
+    document.getElementById(`step${currentStep}`).classList.remove('active');
+    currentStep = n;
+    document.getElementById(`step${currentStep}`).classList.add('active');
+    updateProgress();
+    document.getElementById('formular').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function updateProgress() {
+    for (let i = 1; i <= totalSteps; i++) {
+      const seg = document.getElementById(`seg${i}`);
+      if (i < currentStep) { seg.className = 'progress-seg done'; }
+      else if (i === currentStep) { seg.className = 'progress-seg active'; }
+      else { seg.className = 'progress-seg'; }
+    }
+    document.getElementById('step-label').textContent = `Schritt ${currentStep} von ${totalSteps} — ${['Ihre Situation','Details','Ihre Wünsche','Kontaktdaten'][currentStep-1]}`;
+  }
+
+  function submitForm() {
+    const vorname = document.getElementById('vorname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const telefon = document.getElementById('telefon').value.trim();
+    if (!vorname || !email || !telefon) {
+      alert('Bitte füllen Sie mindestens Vorname, E-Mail und Telefonnummer aus.');
+      return;
+    }
+    document.getElementById('main-page').style.display = 'none';
+    document.getElementById('thank-you').classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    if (item.hasAttribute('data-open')) {
+      item.removeAttribute('data-open');
+    } else {
+      document.querySelectorAll('.faq-item[data-open]').forEach(i => i.removeAttribute('data-open'));
+      item.setAttribute('data-open', '');
+    }
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+</body>
+</html>
