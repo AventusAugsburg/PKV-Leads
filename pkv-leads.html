@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PKV für Beamte — Kostenloses Angebot erhalten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #08091A;
+    --blue: #2563eb;
+    --blue-light: #3b82f6;
+    --blue-faint: rgba(37,99,235,0.06);
+    --blue-faint2: rgba(37,99,235,0.11);
+    --green: #16a34a;
+    --green-faint: rgba(22,163,74,0.09);
+    --muted: #64748b;
+    --border: rgba(15,23,42,0.08);
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background-color: #04060e;
+    background-image:
+      radial-gradient(ellipse 65% 45% at 8% 12%, rgba(37,99,235,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 35% at 92% 80%, rgba(79,70,229,0.17) 0%, transparent 58%),
+      radial-gradient(ellipse 35% 25% at 65% 5%, rgba(99,102,241,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 60% at 50% 105%, rgba(13,27,62,0.9) 0%, transparent 65%);
+  }
+
+  /* ── PAGE WRAPPER ─────────────────────────── */
+  #main-page {
+    background: var(--bg);
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 40px 180px rgba(0,0,0,0.7);
+  }
+
+  /* ── NAV ─────────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(248,248,252,0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 0 1.5rem; height: 62px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-cta {
+    background: var(--ink); color: #fff;
+    border: none; border-radius: 8px;
+    padding: 0.5rem 1.1rem; font-size: 0.82rem; font-weight: 600;
+    cursor: pointer; text-decoration: none; letter-spacing: -0.01em;
+    transition: background 180ms var(--ease-out), transform 120ms var(--ease-out);
+    font-family: inherit;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .nav-cta:hover { background: var(--blue); }
+  }
+  .nav-cta:active { transform: scale(0.96); }
+
+  /* ── HERO ─────────────────────────────────── */
+  .hero-wrap {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero {
+    max-width: 1100px; margin: 0 auto;
+    padding: 3.75rem 1.5rem 3.5rem;
+    display: grid; grid-template-columns: 1fr 440px; gap: 4rem; align-items: start;
+  }
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 2.5rem 1.5rem; }
+  }
+
+  .hero-kicker {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--blue-faint); border: 1px solid var(--blue-faint2);
+    color: var(--blue); border-radius: 6px;
+    padding: 0.25rem 0.7rem; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.5rem;
+  }
+  .hero-kicker-dot {
+    width: 5px; height: 5px; background: var(--blue);
+    border-radius: 50%; animation: pulse 2.4s ease infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(1.5); }
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 800; line-height: 1.08;
+    letter-spacing: -0.045em; color: var(--ink);
+  }
+  h1 em { font-style: normal; color: var(--blue); }
+
+  .hero-sub {
+    margin-top: 1.25rem;
+    font-size: 1.05rem; color: var(--muted);
+    max-width: 440px; line-height: 1.7;
+    font-weight: 400; letter-spacing: -0.005em;
+  }
+
+  .trust-row {
+    display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; margin-top: 1.75rem;
+  }
+  .trust-pill {
+    display: flex; align-items: center; gap: 0.4rem;
+    font-size: 0.82rem; color: var(--muted); font-weight: 500;
+  }
+  .trust-pill svg { color: var(--green); flex-shrink: 0; }
+
+  /* ── STATS BAR ───────────────────────────── */
+  .stats-bar {
+    display: flex; gap: 2.75rem; margin-top: 2.25rem;
+    padding-top: 1.75rem; border-top: 1px solid var(--border);
+  }
+  .stat-item {}
+  .stat-num {
+    font-size: 2rem; font-weight: 800;
+    letter-spacing: -0.04em; color: var(--ink);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.72rem; color: var(--muted); margin-top: 0.25rem; font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+  @media (max-width: 480px) {
+    .stats-bar { gap: 1.5rem; }
+    .stat-num { font-size: 1.3rem; }
+  }
+
+  /* ── FORM CARD ───────────────────────────── */
+  #formular { position: relative; }
+  .form-card {
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 0 1px rgba(15,23,42,0.06), 0 4px 16px rgba(15,23,42,0.06), 0 24px 64px rgba(15,23,42,0.1);
+    overflow: hidden;
+  }
+
+  .form-card-header {
+    background: var(--ink);
+    padding: 1.6rem 1.75rem 1.5rem;
+    position: relative; overflow: hidden;
+  }
+  .form-card-header::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 120% 80% at 100% 0%, rgba(28,63,212,0.35) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .form-header-kicker {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85); border-radius: 5px;
+    padding: 0.18rem 0.6rem; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.65rem;
+    position: relative; z-index: 1;
+  }
+  .form-header-kicker::before {
+    content: ''; width: 4px; height: 4px;
+    background: #4ade80; border-radius: 50%;
+    animation: pulse 2.4s ease infinite;
+  }
+  .form-title {
+    font-size: 1.1rem; font-weight: 700; color: #fff;
+    letter-spacing: -0.025em; line-height: 1.3;
+    position: relative; z-index: 1;
+  }
+  .form-subtitle {
+    font-size: 0.78rem; color: rgba(255,255,255,0.5);
+    margin-top: 0.2rem; position: relative; z-index: 1;
+  }
+
+  .form-body { padding: 1.5rem 1.75rem 1.75rem; }
+
+  /* ── PROGRESS ────────────────────────────── */
+  .progress-wrap { margin-bottom: 1.5rem; }
+  .progress-bar { display: flex; gap: 4px; margin-bottom: 0.5rem; }
+  .progress-seg {
+    height: 3px; flex: 1; border-radius: 100px;
+    background: rgba(8,9,26,0.08);
+    transition: background 300ms var(--ease-out);
+  }
+  .progress-seg.active { background: var(--blue); }
+  .progress-seg.done { background: var(--ink); }
+  .step-label { font-size: 0.7rem; color: var(--muted); font-weight: 500; letter-spacing: 0.01em; }
+
+  /* ── FORM STEPS ──────────────────────────── */
+  .form-step { display: none; }
+  .form-step.active {
+    display: block;
+    animation: stepIn 240ms var(--ease-out) both;
+  }
+  @keyframes stepIn {
+    from { opacity: 0; transform: translateY(7px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── LABELS & INPUTS ─────────────────────── */
+  label {
+    display: block; font-size: 0.76rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 0.4rem; letter-spacing: 0.01em;
+  }
+  input[type="text"], input[type="email"], input[type="tel"], select {
+    width: 100%;
+    border: 1.5px solid rgba(8,9,26,0.13);
+    border-radius: 8px; padding: 0.65rem 0.85rem;
+    font-size: 1rem; color: var(--ink); background: var(--bg);
+    font-family: inherit; outline: none; -webkit-appearance: none;
+    transition: border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out), background 180ms var(--ease-out);
+  }
+  input:focus, select:focus {
+    border-color: var(--blue); background: #fff;
+    box-shadow: 0 0 0 3px rgba(28,63,212,0.1);
+  }
+  input::placeholder { color: rgba(8,9,26,0.28); }
+  .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  @media (max-width: 380px) { .input-grid { grid-template-columns: 1fr; } }
+  .field { margin-bottom: 0.85rem; }
+
+  /* ── OPTION CARDS ────────────────────────── */
+  .option-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; margin-bottom: 0.85rem; }
+  .option-card {
+    border: 1.5px solid rgba(8,9,26,0.1); border-radius: 9px;
+    padding: 0.75rem 0.9rem; cursor: pointer;
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.82rem; font-weight: 600; color: var(--ink);
+    background: var(--bg); user-select: none;
+    transition: border-color 160ms var(--ease-out), background 160ms var(--ease-out), box-shadow 160ms var(--ease-out), transform 120ms var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .option-card:hover {
+      border-color: rgba(28,63,212,0.35);
+      background: var(--surface);
+      box-shadow: 0 2px 8px rgba(8,9,26,0.06);
+    }
+  }
+  .option-card:active { transform: scale(0.97); }
+  .option-card.selected {
+    border-color: var(--blue); background: var(--blue-faint);
+    color: var(--blue); box-shadow: 0 0 0 3px rgba(28,63,212,0.08);
+  }
+  .opt-icon {
+    width: 28px; height: 28px; border-radius: 7px;
+    background: rgba(8,9,26,0.05); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 160ms var(--ease-out);
+  }
+  .option-card.selected .opt-icon { background: rgba(28,63,212,0.12); }
+  .opt-icon svg { width: 14px; height: 14px; color: var(--muted); }
+  .option-card.selected .opt-icon svg { color: var(--blue); }
+
+  /* full-width option card variant */
+  .option-card-full {
+    width: 100%; justify-content: flex-start;
+    padding: 0.8rem 1rem;
+  }
+  .option-card-label { font-size: 0.82rem; font-weight: 600; }
+  .option-card-desc { font-size: 0.68rem; color: var(--muted); font-weight: 400; margin-top: 0.1rem; }
+  .option-card.selected .option-card-desc { color: rgba(28,63,212,0.7); }
+
+  /* ── SLIDER ──────────────────────────────── */
+  .slider-wrap {
+    background: var(--bg); border: 1.5px solid rgba(8,9,26,0.1);
+    border-radius: 9px; padding: 1rem 1.1rem;
+  }
+  .slider-top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  .slider-label { font-size: 0.78rem; color: var(--muted); }
+  .slider-val {
+    font-size: 1.2rem; font-weight: 800; color: var(--blue);
+    letter-spacing: -0.03em;
+  }
+  input[type="range"] {
+    width: 100%; height: 4px;
+    -webkit-appearance: none; appearance: none;
+    background: rgba(8,9,26,0.1); border-radius: 100px; outline: none;
+    accent-color: var(--blue);
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--blue); cursor: pointer;
+    box-shadow: 0 0 0 3px rgba(28,63,212,0.15), 0 2px 6px rgba(28,63,212,0.3);
+    transition: box-shadow 160ms var(--ease-out);
+  }
+  input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 5px rgba(28,63,212,0.15), 0 2px 8px rgba(28,63,212,0.4);
+  }
+  .slider-ticks {
+    display: flex; justify-content: space-between;
+    font-size: 0.65rem; color: var(--muted); margin-top: 0.5rem;
+  }
+  .hint-text { font-size: 0.69rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.5; }
+
+  /* ── BUTTONS ─────────────────────────────── */
+  .btn-primary {
+    width: 100%; background: var(--ink); color: #fff; border: none;
+    border-radius: 9px; padding: 0.85rem 1.5rem;
+    font-size: 0.875rem; font-weight: 600; cursor: pointer; font-family: inherit;
+    display: flex; align-items: center; justify-content: center; gap: 0.45rem;
+    letter-spacing: -0.01em;
+    box-shadow: 0 1px 2px rgba(8,9,26,0.15), 0 4px 12px rgba(8,9,26,0.1);
+    transition: background 180ms var(--ease-out), box-shadow 180ms var(--ease-out), transform 120ms var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+      background: var(--blue);
+      box-shadow: 0 1px 3px rgba(28,63,212,0.2), 0 6px 20px rgba(28,63,212,0.25);
+    }
+  }
+  .btn-primary:active { transform: scale(0.97); box-shadow: 0 1px 2px rgba(8,9,26,0.1); }
+
+  .btn-submit {
+    background: linear-gradient(135deg, #0d7a4e 0%, var(--green) 100%);
+    box-shadow: 0 1px 2px rgba(22,163,74,0.2), 0 4px 12px rgba(22,163,74,0.2);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-submit:hover {
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      box-shadow: 0 1px 3px rgba(22,163,74,0.2), 0 6px 20px rgba(22,163,74,0.3);
+    }
+  }
+
+  .btn-back {
+    background: none; border: none; font-size: 0.76rem; color: var(--muted);
+    cursor: pointer; padding: 0.5rem 0; font-family: inherit;
+    margin-top: 0.6rem; display: flex; align-items: center; gap: 0.3rem;
+    transition: color 150ms var(--ease-out);
+    min-height: 44px;
+  }
+  .btn-back:hover { color: var(--ink); }
+
+  .form-note { font-size: 0.69rem; color: var(--muted); text-align: center; margin-top: 0.65rem; line-height: 1.55; }
+  .form-note a { color: var(--blue); text-decoration: none; }
+
+  .security-row {
+    display: flex; align-items: center; justify-content: center; gap: 0.35rem;
+    font-size: 0.68rem; color: var(--muted); margin-top: 0.7rem;
+  }
+  .security-row svg { color: var(--green); }
+  .security-row a { color: var(--blue); text-decoration: none; }
+
+  /* ── SOCIAL PROOF IN FORM ────────────────── */
+  .proof-divider { height: 1px; background: var(--border); margin: 1.2rem 0 1rem; }
+  .proof-row { display: flex; align-items: center; gap: 0.75rem; }
+  .proof-avatars { display: flex; }
+  .proof-avatars span {
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 2px solid var(--surface);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.55rem; color: #fff; font-weight: 700; margin-left: -6px;
+  }
+  .proof-avatars span:first-child { margin-left: 0; }
+  .av1 { background: #1C3FD4; }
+  .av2 { background: #2563eb; }
+  .av3 { background: #08091A; }
+  .av4 { background: #64748b; }
+  .stars { color: #f59e0b; font-size: 0.78rem; letter-spacing: 0.5px; }
+  .proof-text { font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
+  .proof-text strong { color: var(--ink); }
+
+  /* ── DIVIDER ─────────────────────────────── */
+  .section-divider { height: 1px; background: var(--border); max-width: 1100px; margin: 0 auto; }
+
+  /* ── SHARED SECTION LAYOUT ───────────────── */
+  .section { max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.5rem; }
+  .section-kicker {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+    color: var(--blue); text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 800;
+    letter-spacing: -0.035em; color: var(--ink); line-height: 1.15; max-width: 520px;
+  }
+  .section-sub {
+    font-size: 0.95rem; color: var(--muted); max-width: 480px;
+    margin-top: 0.65rem; line-height: 1.65;
+  }
+  @media (max-width: 640px) {
+    .section { padding: 2.5rem 1.25rem; }
+    .section-title { font-size: 1.4rem; }
+  }
+
+  /* ── BEISPIELE (profile cards) ───────────── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; margin-top: 2rem;
+  }
+  @media (max-width: 860px) {
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+
+  .profile-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.5rem;
+    display: flex; flex-direction: column;
+    transition: box-shadow 200ms var(--ease-out), transform 200ms var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .profile-card:hover {
+      box-shadow: 0 8px 32px rgba(8,9,26,0.1);
+      transform: translateY(-2px);
+    }
+  }
+
+  /* Head */
+  .pc-head { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 1.4rem; }
+  .pc-avatar {
+    width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 800; letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .pc-av-blue  { background: var(--blue); }
+  .pc-av-ink   { background: var(--ink); }
+  .pc-av-slate { background: #475569; }
+
+  .pc-name { font-size: 0.9rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; line-height: 1.2; }
+  .pc-meta { font-size: 0.7rem; color: var(--muted); margin-top: 0.15rem; }
+  .pc-badge {
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    background: var(--blue-faint); border: 1px solid var(--blue-faint2);
+    color: var(--blue); border-radius: 4px;
+    padding: 0.12rem 0.45rem; font-size: 0.63rem; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.35rem;
+  }
+
+  /* Bar comparison */
+  .pc-bars { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.7rem; }
+  .pc-bar-row {}
+  .pc-bar-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 0.3rem;
+  }
+  .pc-bar-label { font-size: 0.7rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .pc-bar-value { font-size: 0.78rem; font-weight: 700; }
+  .pc-bar-value.old { color: var(--muted); text-decoration: line-through; }
+  .pc-bar-value.new { color: var(--blue); }
+  .pc-bar-track {
+    height: 5px; background: rgba(8,9,26,0.07);
+    border-radius: 100px; overflow: hidden;
+  }
+  .pc-bar-fill {
+    height: 100%; border-radius: 100px;
+    width: 0;
+    transition: width 900ms var(--ease-out);
+  }
+  .pc-bar-fill.fill-gkv { background: rgba(8,9,26,0.18); }
+  .pc-bar-fill.fill-pkv { background: var(--blue); }
+  .reveal-item.revealed .pc-bar-fill { width: var(--bar-w); }
+
+  /* Divider */
+  .pc-divider { height: 1px; background: var(--border); margin: 1rem 0; }
+
+  /* Savings box */
+  .pc-savings-box {
+    background: #EDFAF3; border: 1px solid rgba(22,163,74,0.18);
+    border-radius: 11px; padding: 0.9rem 1rem;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: auto;
+  }
+  .pc-savings-label {
+    font-size: 0.67rem; font-weight: 700; color: #166534;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .pc-savings-year { font-size: 0.7rem; color: #4d7c5f; margin-top: 0.2rem; font-weight: 500; }
+  .pc-savings-amount {
+    font-size: 1.55rem; font-weight: 800; color: #166534;
+    letter-spacing: -0.04em; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .pc-savings-unit { font-size: 0.7rem; font-weight: 500; margin-left: 1px; }
+
+  /* ── WHY GRID ────────────────────────────── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; margin-top: 2rem;
+  }
+  @media (max-width: 860px) {
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .why-grid { grid-template-columns: 1fr; }
+  }
+  .why-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.4rem;
+    transition: box-shadow 200ms var(--ease-out), transform 200ms var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .why-card:hover { box-shadow: 0 8px 28px rgba(8,9,26,0.08); transform: translateY(-2px); }
+  }
+  .why-icon-wrap {
+    width: 38px; height: 38px; border-radius: 9px;
+    background: var(--blue-faint);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .why-icon-wrap svg { width: 18px; height: 18px; color: var(--blue); }
+  .why-card h3 { font-size: 0.9rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.4rem; }
+  .why-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── QUOTE SECTION ───────────────────────── */
+  .quote-section { background: var(--surface); }
+  .quote-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 3.5rem 1.5rem;
+    display: grid; grid-template-columns: auto 1fr; gap: 4rem; align-items: start;
+  }
+  @media (max-width: 860px) {
+    .quote-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.5rem; }
+  }
+  .quote-kicker { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; color: var(--blue); text-transform: uppercase; margin-bottom: 1.5rem; }
+  blockquote {
+    font-size: clamp(0.95rem, 2vw, 1.1rem); font-weight: 500; color: var(--ink);
+    line-height: 1.65; letter-spacing: -0.01em; margin: 0 0 1.1rem;
+    border-left: 3px solid var(--blue); padding-left: 1.1rem;
+  }
+  .quote-author { display: flex; align-items: center; gap: 0.75rem; }
+  .quote-avatar {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--blue-faint);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700; color: var(--blue); flex-shrink: 0;
+  }
+  .quote-name { font-size: 0.84rem; font-weight: 600; }
+  .quote-stars { color: #f59e0b; font-size: 0.72rem; letter-spacing: 0.5px; margin-top: 0.05rem; }
+  .mini-reviews { display: flex; flex-direction: column; gap: 0.65rem; margin-top: 1.25rem; }
+  .mini-review {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 0.85rem 1rem;
+  }
+  .mini-review-head { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.4rem; }
+  .mini-avatar {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--blue-faint);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.6rem; font-weight: 700; color: var(--blue); flex-shrink: 0;
+  }
+  .mini-review-name { font-size: 0.76rem; font-weight: 600; }
+  .mini-review-stars { color: #f59e0b; font-size: 0.67rem; letter-spacing: 0.5px; margin-top: 0.05rem; }
+  .mini-review-text { font-size: 0.81rem; color: var(--muted); line-height: 1.55; }
+
+  /* ── PROVEN EXPERT BADGE ─────────────────── */
+  .pe-badge-link {
+    display: block; text-decoration: none;
+    transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+    border-radius: 6px;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .pe-badge-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(8,9,26,0.12);
+    }
+  }
+  .pe-badge-link:active { transform: scale(0.97); }
+  .pe-badge {
+    width: 186px;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .pe-company-name {
+    padding: 7px 9px 5px;
+    font-size: 8.5px; font-weight: 700; color: #111;
+    text-align: center; line-height: 1.3;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .pe-brand-bar {
+    background: #1a4fa0;
+    padding: 5px 9px;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .pe-check-icon {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .pe-check-icon svg { width: 9px; height: 9px; color: #1a4fa0; }
+  .pe-brand-text { font-size: 9.5px; font-weight: 900; color: #fff; letter-spacing: 0.01em; }
+  .pe-brand-sub { font-size: 7.5px; color: rgba(255,255,255,0.85); margin-top: 0.5px; }
+  .pe-body { padding: 9px 9px 7px; text-align: center; }
+  .pe-stars { color: #FFB300; font-size: 21px; letter-spacing: 2px; line-height: 1; }
+  .pe-rating-text {
+    font-size: 14px; font-weight: 900; color: #111;
+    letter-spacing: 0.04em; margin-top: 4px; text-transform: uppercase;
+  }
+  .pe-rec {
+    font-size: 9.5px; color: #333; font-weight: 700; margin-top: 3px;
+  }
+  .pe-count { font-size: 8.5px; color: #666; margin-top: 2px; }
+  .pe-footer {
+    border-top: 1px solid #e8e8e8;
+    padding: 5px 9px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .pe-date { font-size: 7.5px; color: #888; }
+  .pe-more { font-size: 7.5px; color: #1a4fa0; font-weight: 600; }
+
+  /* ── STEPS ───────────────────────────────── */
+  .steps-section { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 2rem; position: relative; }
+  @media (max-width: 640px) {
+    .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  .steps-grid::before {
+    content: '';
+    position: absolute; top: 20px; left: calc(100% / 6);
+    width: calc(100% - 100% / 3); height: 1px;
+    background: var(--border);
+  }
+  @media (max-width: 640px) { .steps-grid::before { display: none; } }
+  .step-item { text-align: center; padding: 0 1rem; }
+  .step-num {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--ink); color: #fff;
+    font-weight: 700; font-size: 0.85rem;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem; position: relative; z-index: 1;
+    box-shadow: 0 4px 12px rgba(8,9,26,0.2);
+  }
+  .step-item h3 { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.35rem; letter-spacing: -0.01em; }
+  .step-item p { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
+  /* ── FAQ ─────────────────────────────────── */
+  .faq-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .faq-item {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+  }
+  .faq-q {
+    padding: 1rem 1.2rem; font-size: 0.875rem; font-weight: 600;
+    cursor: pointer; display: flex; justify-content: space-between;
+    align-items: center; gap: 1rem; letter-spacing: -0.01em;
+    transition: color 150ms var(--ease-out);
+    user-select: none;
+  }
+  .faq-q svg { flex-shrink: 0; color: var(--muted); transition: transform 250ms var(--ease-out); }
+  .faq-item[data-open] .faq-q svg { transform: rotate(180deg); }
+  .faq-a {
+    display: none; padding: 0 1.2rem 1rem;
+    font-size: 0.83rem; color: var(--muted); line-height: 1.7;
+    border-top: 1px solid var(--border); padding-top: 0.85rem;
+  }
+  .faq-item[data-open] .faq-a { display: block; }
+
+  /* ── BOTTOM CTA ──────────────────────────── */
+  .bottom-cta-wrap { max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.5rem; }
+  .bottom-cta {
+    background: var(--ink); border-radius: 16px;
+    padding: 3.5rem 2.5rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .bottom-cta::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(28,63,212,0.4) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .bottom-cta h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800;
+    color: #fff; letter-spacing: -0.03em; margin-bottom: 0.65rem;
+    position: relative;
+  }
+  .bottom-cta p { color: rgba(255,255,255,0.55); font-size: 0.95rem; margin-bottom: 1.75rem; position: relative; }
+  .btn-cta-white {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: #fff; color: var(--ink); border: none;
+    border-radius: 8px; padding: 0.8rem 1.75rem;
+    font-size: 0.9rem; font-weight: 700; cursor: pointer;
+    font-family: inherit; text-decoration: none; position: relative;
+    letter-spacing: -0.01em;
+    transition: background 180ms var(--ease-out), color 180ms var(--ease-out), transform 120ms var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-cta-white:hover { background: rgba(255,255,255,0.88); }
+  }
+  .btn-cta-white:active { transform: scale(0.97); }
+
+  /* ── FOOTER ──────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border); padding: 2rem 1.5rem;
+    max-width: 1100px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  footer p { font-size: 0.78rem; color: var(--muted); }
+  footer a { font-size: 0.78rem; color: var(--muted); text-decoration: none; transition: color 150ms; }
+  footer a:hover { color: var(--ink); }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+  /* ── THANK YOU ───────────────────────────── */
+  #thank-you {
+    display: none; min-height: 80vh;
+    flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 4rem 1.5rem;
+    background: var(--bg);
+    max-width: 1200px; margin: 0 auto;
+    box-shadow: 0 0 0 1px rgba(8,9,26,0.06), 0 32px 120px rgba(8,9,26,0.12);
+  }
+  #thank-you.visible { display: flex; }
+  .check-circle {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--green-faint); border: 1px solid rgba(22,163,74,0.2);
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;
+  }
+  .check-circle svg { color: var(--green); }
+  #thank-you h1 { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.035em; margin-bottom: 0.65rem; }
+  #thank-you p { font-size: 0.95rem; color: var(--muted); max-width: 400px; }
+  .ty-steps { display: flex; flex-direction: column; gap: 0.65rem; margin-top: 2rem; max-width: 340px; text-align: left; }
+  .ty-step { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.85rem; color: var(--muted); }
+  .ty-step-num {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--ink); color: #fff; font-size: 0.65rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+  }
+
+  /* ── RESPONSIVE MISC ─────────────────────── */
+  @media (max-width: 640px) {
+    .bottom-cta { padding: 2rem 1.25rem; margin: 0; }
+    .bottom-cta-wrap { padding: 2.5rem 1.25rem; }
+    footer { flex-direction: column; align-items: flex-start; }
+    .trust-row { gap: 0.5rem; }
+    .stats-bar { flex-wrap: wrap; gap: 1.25rem; }
+    .hero { gap: 2.5rem; }
+    h1 { font-size: 1.75rem; }
+    .hero-sub { font-size: 0.95rem; }
+  }
+
+  /* ── DIRECTION-AWARE FORM TRANSITIONS ───── */
+  .form-step { display: none; overflow: hidden; }
+  .form-step.active {
+    display: block;
+    animation: stepIn 240ms var(--ease-out) both;
+  }
+  .form-step.active.from-right {
+    animation: slideInRight 260ms var(--ease-out) both;
+  }
+  .form-step.active.from-left {
+    animation: slideInLeft 260ms var(--ease-out) both;
+  }
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(22px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-22px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ── SCROLL REVEAL ───────────────────────── */
+  .reveal-item {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 520ms var(--ease-out), transform 520ms var(--ease-out);
+  }
+  .reveal-item.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── SHAKE VALIDATION ────────────────────── */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    15%       { transform: translateX(-7px); }
+    35%       { transform: translateX(7px); }
+    55%       { transform: translateX(-5px); }
+    75%       { transform: translateX(5px); }
+    90%       { transform: translateX(-2px); }
+  }
+  .shake { animation: shake 420ms var(--ease-out); }
+
+  /* ── NUMBER TICKER ───────────────────────── */
+  .stat-num {
+    transition: color 200ms;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── STAGGER DELAYS (for revealed groups) ── */
+  .reveal-item:nth-child(1) { transition-delay: 0ms; }
+  .reveal-item:nth-child(2) { transition-delay: 70ms; }
+  .reveal-item:nth-child(3) { transition-delay: 140ms; }
+  .reveal-item:nth-child(4) { transition-delay: 210ms; }
+  .reveal-item:nth-child(5) { transition-delay: 280ms; }
+  .reveal-item:nth-child(6) { transition-delay: 350ms; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-item { opacity: 1; transform: none; transition: none; }
+    .shake { animation: none; }
+    .form-step.active, .form-step.active.from-right, .form-step.active.from-left {
+      animation: none;
+    }
+  }
+
+  /* ── DESIGN REFRESH ─────────────────────────── */
+
+  /* Hero: pure white surface, no pattern — Stripe/Linear style */
+  .hero-wrap {
+    background-color: var(--surface);
+    background-image: none;
+  }
+
+  /* Gradient on headline emphasis */
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(130deg, #1C3FD4 0%, #3B5BEB 55%, #6272f5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Stat numbers: ink→blue gradient for impact */
+  .stat-num {
+    background: linear-gradient(135deg, var(--ink) 10%, #2547e8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: none;
+  }
+
+  /* Editorial section kicker: leading dash */
+  .section-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-kicker::before {
+    content: '';
+    display: block;
+    width: 18px; height: 2px;
+    background: var(--blue);
+    flex-shrink: 0;
+    border-radius: 2px;
+  }
+
+  /* Quote section kicker matches */
+  .quote-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .quote-kicker::before {
+    content: '';
+    display: block;
+    width: 14px; height: 2px;
+    background: var(--blue);
+    flex-shrink: 0;
+    border-radius: 2px;
+  }
+
+  /* Profile card: blue top accent stripe */
+  .profile-card::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue) 0%, rgba(28,63,212,0.08) 100%);
+    border-radius: 14px 14px 0 0;
+    margin: -1.5rem -1.5rem 1.25rem;
+  }
+
+  /* Why card: oversized decorative number background */
+  .why-card { position: relative; overflow: hidden; }
+  .why-num {
+    position: absolute;
+    bottom: -0.75rem; right: 0.5rem;
+    font-size: 6rem; font-weight: 900;
+    color: rgba(8,9,26,0.03);
+    letter-spacing: -0.05em; line-height: 1;
+    user-select: none; pointer-events: none;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Bottom CTA: deep multi-tone gradient */
+  .bottom-cta {
+    background: linear-gradient(135deg, #04091a 0%, #0b1640 55%, #05101e 100%);
+  }
+  .bottom-cta::after {
+    content: '';
+    position: absolute; bottom: -70px; left: -70px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,91,235,0.28) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Section title: tighter leading on desktop */
+  @media (min-width: 860px) {
+    .section-title { letter-spacing: -0.04em; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <img src="logo.png" alt="Aventus Logo" style="height:34px;width:auto;display:block;">
+    <a href="#formular" class="nav-cta">Kostenloses Angebot →</a>
+  </div>
+</nav>
+
+<!-- MAIN PAGE -->
+<div id="main-page">
+
+<!-- HERO -->
+<div class="hero-wrap">
+<div class="hero">
+
+  <!-- Left: Copy -->
+  <div>
+    <div class="hero-kicker">
+      <span class="hero-kicker-dot"></span>
+      Speziell für Beamte &amp; Beamtenanwärter
+    </div>
+    <h1>Ihre Kollegen zahlen<br>halb so viel.<br><em>Wissen Sie warum?</em></h1>
+    <p class="hero-sub">Als Beamter übernimmt Ihr Dienstherr bis zu 90 % Ihrer Krankenkosten. Sie versichern nur den Rest — und erhalten dabei Top-Leistungen für einen Bruchteil des GKV-Beitrags.</p>
+
+    <div class="trust-row">
+      <span class="trust-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Kostenlos &amp; unverbindlich
+      </span>
+      <span class="trust-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Kein Direktabschluss nötig
+      </span>
+      <span class="trust-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Persönliche Beratung
+      </span>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-num" data-ticker="247" data-suffix="+">0+</div>
+        <div class="stat-label">Beamte beraten</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-ticker="90" data-prefix="bis " data-suffix="%">bis 0%</div>
+        <div class="stat-label">Beihilfe vom Dienstherr</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-ticker="2" data-suffix=" Min.">0 Min.</div>
+        <div class="stat-label">Formular ausfüllen</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Form Card -->
+  <div id="formular">
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-header-kicker">Kostenlos &amp; unverbindlich</div>
+        <div class="form-title">Tarife kostenlos vergleichen</div>
+        <div class="form-subtitle">In 2 Minuten — wir melden uns persönlich.</div>
+      </div>
+
+      <div class="form-body">
+
+        <!-- Progress -->
+        <div class="progress-wrap">
+          <div class="progress-bar">
+            <div class="progress-seg active" id="seg1"></div>
+            <div class="progress-seg" id="seg2"></div>
+            <div class="progress-seg" id="seg3"></div>
+            <div class="progress-seg" id="seg4"></div>
+            <div class="progress-seg" id="seg5"></div>
+            <div class="progress-seg" id="seg6"></div>
+          </div>
+          <div class="step-label" id="step-label" aria-live="polite" aria-atomic="true">Schritt 1 von 6 — Ihr Status</div>
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="form-step active" id="step1">
+          <div class="field">
+            <label>Sind Sie bereits verbeamtet?</label>
+            <div class="option-grid">
+              <div class="option-card" data-group="status" data-val="verbeamtet" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                Ja, verbeamtet
+              </div>
+              <div class="option-card" data-group="status" data-val="nicht-verbeamtet" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                </div>
+                Noch nicht
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="bundesland">In welchem Bundesland sind Sie tätig?</label>
+            <select id="bundesland">
+              <option value="">Bitte wählen...</option>
+              <option>Baden-Württemberg</option><option>Bayern</option><option>Berlin</option>
+              <option>Brandenburg</option><option>Bremen</option><option>Hamburg</option>
+              <option>Hessen</option><option>Mecklenburg-Vorpommern</option><option>Niedersachsen</option>
+              <option>Nordrhein-Westfalen</option><option>Rheinland-Pfalz</option><option>Saarland</option>
+              <option>Sachsen</option><option>Sachsen-Anhalt</option><option>Schleswig-Holstein</option>
+              <option>Thüringen</option><option>Bund (Bundesbeamter)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Ihr Geburtsdatum</label>
+            <div style="display:flex;gap:0.5rem;align-items:center;">
+              <input id="geb-tag" type="text" inputmode="numeric" maxlength="2" placeholder="TT"
+                style="width:56px;text-align:center;"
+                oninput="this.value=this.value.replace(/\D/g,'');if(this.value.length===2)document.getElementById('geb-monat').focus()">
+              <span style="color:var(--muted);font-size:0.9rem;">.</span>
+              <input id="geb-monat" type="text" inputmode="numeric" maxlength="2" placeholder="MM"
+                style="width:56px;text-align:center;"
+                oninput="this.value=this.value.replace(/\D/g,'');if(this.value.length===2)document.getElementById('geb-jahr').focus()">
+              <span style="color:var(--muted);font-size:0.9rem;">.</span>
+              <input id="geb-jahr" type="text" inputmode="numeric" maxlength="4" placeholder="JJJJ"
+                style="width:76px;text-align:center;"
+                oninput="this.value=this.value.replace(/\D/g,'')">
+            </div>
+          </div>
+          <button class="btn-primary" onclick="tryGoStep(2)">
+            Weiter
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+          <p class="form-note">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;color:var(--muted);"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Ihre Daten werden sicher übermittelt und nicht weitergegeben.
+          </p>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="form-step" id="step2">
+          <div class="field">
+            <label>Erhalten Sie Beihilfe von Ihrem Dienstherren?</label>
+            <div class="option-grid">
+              <div class="option-card" data-group="beihilfe" data-val="ja" onclick="selectOption(this);goBeihilfeStep('ja')">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                Ja, Beihilfe
+              </div>
+              <div class="option-card" data-group="beihilfe" data-val="nein" onclick="selectOption(this);goBeihilfeStep('nein')">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+                Nein
+              </div>
+            </div>
+            <p class="hint-text">Die meisten Beamten erhalten Beihilfe. Soldaten und manche Polizeibeamte erhalten stattdessen Heilfürsorge.</p>
+          </div>
+          <button class="btn-back" onclick="goStep(1)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Zurück
+          </button>
+        </div>
+
+        <!-- STEP 3A -->
+        <div class="form-step" id="step3a">
+          <div class="field">
+            <label>Wie hoch ist Ihr Beihilfesatz?</label>
+            <div class="slider-wrap">
+              <div class="slider-top">
+                <span class="slider-label">Mein Beihilfesatz</span>
+                <span class="slider-val" id="beihilfe-val">50 %</span>
+              </div>
+              <input type="range" id="beihilfe-slider" min="50" max="90" step="10" value="50"
+                oninput="document.getElementById('beihilfe-val').textContent=this.value+' %'">
+              <div class="slider-ticks">
+                <span>50 %</span><span>60 %</span><span>70 %</span><span>80 %</span><span>90 %</span>
+              </div>
+            </div>
+            <p class="hint-text">Nicht sicher? Für die meisten Beamten gilt 50 %. Der Satz steigt auf 70 % erst ab 2 Kindern.</p>
+          </div>
+          <button class="btn-primary" onclick="tryGoStep(4)">
+            Weiter
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+          <button class="btn-back" onclick="goStep(2)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Zurück
+          </button>
+        </div>
+
+        <!-- STEP 3B -->
+        <div class="form-step" id="step3b">
+          <div class="field">
+            <label>Erhalten Sie Heilfürsorge?</label>
+            <div class="option-grid">
+              <div class="option-card" data-group="heilfuersorge" data-val="ja" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                </div>
+                Ja, Heilfürsorge
+              </div>
+              <div class="option-card" data-group="heilfuersorge" data-val="nein" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+                Nein
+              </div>
+            </div>
+            <p class="hint-text">Heilfürsorge erhalten z. B. Polizeibeamte und Feuerwehrbeamte in bestimmten Bundesländern — sie ersetzt die Beihilfe vollständig.</p>
+          </div>
+          <button class="btn-primary" onclick="tryGoStep(4)">
+            Weiter
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+          <button class="btn-back" onclick="goStep(2)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Zurück
+          </button>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="form-step" id="step4">
+          <div class="field">
+            <label>Welches Krankenhauszimmer wünschen Sie sich?</label>
+            <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.85rem;">
+              <div class="option-card option-card-full" data-group="zimmer" data-val="mehrbett" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10"></path><path d="M2 14h20"></path><path d="M6 8v6M10 8v6"></path></svg>
+                </div>
+                <div>
+                  <div class="option-card-label">Mehrbettzimmer</div>
+                  <div class="option-card-desc">Standardversorgung · günstigster Beitrag</div>
+                </div>
+              </div>
+              <div class="option-card option-card-full" data-group="zimmer" data-val="zweitbett" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                </div>
+                <div>
+                  <div class="option-card-label">Zweibettzimmer</div>
+                  <div class="option-card-desc">Mehr Privatsphäre · mittlerer Aufpreis</div>
+                </div>
+              </div>
+              <div class="option-card option-card-full" data-group="zimmer" data-val="einzelbett" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </div>
+                <div>
+                  <div class="option-card-label">Einzelzimmer</div>
+                  <div class="option-card-desc">Maximale Privatsphäre · höherer Beitrag</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Zusatzleistungen <span style="font-weight:400;color:var(--muted);">(Mehrfachauswahl möglich)</span></label>
+            <div style="display:flex;flex-direction:column;gap:0.4rem;">
+              <div class="option-card option-card-full" data-multi="chefarzt" onclick="toggleExtra(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <div>
+                  <div class="option-card-label">Chefarztbehandlung</div>
+                  <div class="option-card-desc">Behandlung durch leitende Ärzte</div>
+                </div>
+              </div>
+              <div class="option-card option-card-full" data-multi="zahn" onclick="toggleExtra(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C9 2 6 5 6 8c0 2 1 4 1 7 0 2 1 5 5 5s5-3 5-5c0-3 1-5 1-7 0-3-3-6-6-6z"></path></svg>
+                </div>
+                <div>
+                  <div class="option-card-label">Zahnzusatz</div>
+                  <div class="option-card-desc">Hochwertige Zahnversorgung &amp; Implantate</div>
+                </div>
+              </div>
+              <div class="option-card option-card-full" data-multi="brille" onclick="toggleExtra(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"></circle><circle cx="18" cy="12" r="4"></circle><line x1="10" y1="12" x2="14" y2="12"></line></svg>
+                </div>
+                <div>
+                  <div class="option-card-label">Sehhilfen</div>
+                  <div class="option-card-desc">Brille, Kontaktlinsen &amp; Laserbehandlung</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-primary" onclick="tryGoStep(5)">
+            Weiter
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+          <button class="btn-back" onclick="goBack4()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Zurück
+          </button>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="form-step" id="step5">
+          <div class="field">
+            <label>Wie ist Ihre aktuelle Versicherungssituation?</label>
+            <div class="option-grid">
+              <div class="option-card" data-group="situation" data-val="gkv" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                </div>
+                Noch GKV
+              </div>
+              <div class="option-card" data-group="situation" data-val="pkv" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                Bereits PKV
+              </div>
+              <div class="option-card" data-group="situation" data-val="familienvers" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                Familienvers.
+              </div>
+              <div class="option-card" data-group="situation" data-val="keine" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                </div>
+                Noch keine
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Haben Sie Familienangehörige mitzuversichern?</label>
+            <div class="option-grid" style="grid-template-columns:1fr 1fr 1fr;">
+              <div class="option-card" data-group="kinder" data-val="nein" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                Nein
+              </div>
+              <div class="option-card" data-group="kinder" data-val="kinder" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-7 8-7s8 3 8 7"></path></svg>
+                </div>
+                Kinder
+              </div>
+              <div class="option-card" data-group="kinder" data-val="partner" onclick="selectOption(this)">
+                <div class="opt-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                Partner
+              </div>
+            </div>
+          </div>
+          <button class="btn-primary" onclick="tryGoStep(6)">
+            Weiter
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+          <button class="btn-back" onclick="goStep(4)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Zurück
+          </button>
+        </div>
+
+        <!-- STEP 6 -->
+        <div class="form-step" id="step6">
+          <div class="field">
+            <div class="input-grid">
+              <div>
+                <label for="vorname">Vorname</label>
+                <input type="text" id="vorname" placeholder="Max">
+              </div>
+              <div>
+                <label for="nachname">Nachname</label>
+                <input type="text" id="nachname" placeholder="Mustermann">
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail-Adresse</label>
+            <input type="email" id="email" placeholder="max@beispiel.de" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="telefon">Telefonnummer</label>
+            <input type="tel" id="telefon" placeholder="+49 123 456789" autocomplete="tel">
+          </div>
+          <div class="field" style="margin-top:0.5rem;">
+            <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;font-size:0.75rem;font-weight:400;color:var(--muted);line-height:1.55;">
+              <input type="checkbox" id="dsgvo" style="width:15px;height:15px;margin-top:2px;flex-shrink:0;accent-color:var(--blue);">
+              Ich bin damit einverstanden, dass Aventus meine Angaben nutzt, um mich per Telefon oder E-Mail zu kontaktieren. Eine Abmeldung ist jederzeit möglich.
+            </label>
+          </div>
+          <button class="btn-primary btn-submit" onclick="submitForm()">
+            Jetzt kostenlos anfragen
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </button>
+          <button class="btn-back" onclick="goStep(5)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Zurück
+          </button>
+          <div class="security-row">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            SSL-verschlüsselt · DSGVO-konform · <a href="#">Datenschutzerklärung</a>
+          </div>
+        </div>
+
+        <!-- Social Proof -->
+        <div class="proof-divider"></div>
+        <div class="proof-row">
+          <div class="proof-avatars">
+            <span class="av1">MK</span><span class="av2">TS</span><span class="av3">AL</span><span class="av4">+</span>
+          </div>
+          <div class="proof-text">
+            <div class="stars">★★★★★</div>
+            <strong>489 verifizierte Bewertungen</strong> · 99 % Empfehlungen
+          </div>
+        </div>
+
+      </div><!-- end form-body -->
+    </div>
+  </div>
+
+</div>
+</div><!-- end hero-wrap -->
+
+<!-- RECHENBEISPIEL -->
+<div class="section">
+  <div class="section-kicker">Was Beamte wirklich zahlen</div>
+  <h2 class="section-title">Konkrete Beispiele aus der Praxis.</h2>
+  <p class="section-sub">Wie viel Sie sparen hängt von Alter, Bundesland und Beihilfesatz ab. Diese Beispiele zeigen das Potenzial.</p>
+
+  <div class="cards-grid" id="cards-grid">
+
+    <!-- Card 1: Lehrerin -->
+    <div class="profile-card reveal-item">
+      <div class="pc-head">
+        <div class="pc-avatar pc-av-blue">LA</div>
+        <div>
+          <div class="pc-name">Lehrerin</div>
+          <div class="pc-meta">24 Jahre · Bayern · gesund</div>
+          <div class="pc-badge">50 % Beihilfe</div>
+        </div>
+      </div>
+
+      <div class="pc-bars">
+        <div class="pc-bar-row">
+          <div class="pc-bar-header">
+            <span class="pc-bar-label">GKV bisher</span>
+            <span class="pc-bar-value old">ca. 850 €/Mo.</span>
+          </div>
+          <div class="pc-bar-track">
+            <div class="pc-bar-fill fill-gkv" style="--bar-w:100%"></div>
+          </div>
+        </div>
+        <div class="pc-bar-row">
+          <div class="pc-bar-header">
+            <span class="pc-bar-label">PKV + Beihilfe</span>
+            <span class="pc-bar-value new">ca. 300 €/Mo.</span>
+          </div>
+          <div class="pc-bar-track">
+            <div class="pc-bar-fill fill-pkv" style="--bar-w:35%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc-divider"></div>
+
+      <div class="pc-savings-box">
+        <div>
+          <div class="pc-savings-label">Sie sparen</div>
+          <div class="pc-savings-year">= 6.600 € pro Jahr</div>
+        </div>
+        <div class="pc-savings-amount">−550 <span class="pc-savings-unit">€/Mo.</span></div>
+      </div>
+    </div>
+
+    <!-- Card 2: Polizeibeamter -->
+    <div class="profile-card reveal-item">
+      <div class="pc-head">
+        <div class="pc-avatar pc-av-ink">PB</div>
+        <div>
+          <div class="pc-name">Polizeibeamter</div>
+          <div class="pc-meta">31 Jahre · NRW · 1 Kind</div>
+          <div class="pc-badge">70 % Beihilfe</div>
+        </div>
+      </div>
+
+      <div class="pc-bars">
+        <div class="pc-bar-row">
+          <div class="pc-bar-header">
+            <span class="pc-bar-label">GKV bisher</span>
+            <span class="pc-bar-value old">ca. 800 €/Mo.</span>
+          </div>
+          <div class="pc-bar-track">
+            <div class="pc-bar-fill fill-gkv" style="--bar-w:100%"></div>
+          </div>
+        </div>
+        <div class="pc-bar-row">
+          <div class="pc-bar-header">
+            <span class="pc-bar-label">PKV + Beihilfe</span>
+            <span class="pc-bar-value new">ca. 380 €/Mo.</span>
+          </div>
+          <div class="pc-bar-track">
+            <div class="pc-bar-fill fill-pkv" style="--bar-w:47%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc-divider"></div>
+
+      <div class="pc-savings-box">
+        <div>
+          <div class="pc-savings-label">Sie sparen</div>
+          <div class="pc-savings-year">= 5.040 € pro Jahr</div>
+        </div>
+        <div class="pc-savings-amount">−420 <span class="pc-savings-unit">€/Mo.</span></div>
+      </div>
+    </div>
+
+    <!-- Card 3: Verwaltungsbeamter -->
+    <div class="profile-card reveal-item">
+      <div class="pc-head">
+        <div class="pc-avatar pc-av-slate">VB</div>
+        <div>
+          <div class="pc-name">Verwaltungsbeamter</div>
+          <div class="pc-meta">38 Jahre · Berlin · verheiratet</div>
+          <div class="pc-badge">50 % Beihilfe</div>
+        </div>
+      </div>
+
+      <div class="pc-bars">
+        <div class="pc-bar-row">
+          <div class="pc-bar-header">
+            <span class="pc-bar-label">GKV bisher</span>
+            <span class="pc-bar-value old">ca. 500 €/Mo.</span>
+          </div>
+          <div class="pc-bar-track">
+            <div class="pc-bar-fill fill-gkv" style="--bar-w:100%"></div>
+          </div>
+        </div>
+        <div class="pc-bar-row">
+          <div class="pc-bar-header">
+            <span class="pc-bar-label">PKV + Beihilfe</span>
+            <span class="pc-bar-value new">ca. 350 €/Mo.</span>
+          </div>
+          <div class="pc-bar-track">
+            <div class="pc-bar-fill fill-pkv" style="--bar-w:70%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc-divider"></div>
+
+      <div class="pc-savings-box">
+        <div>
+          <div class="pc-savings-label">Sie sparen</div>
+          <div class="pc-savings-year">= 1.800 € pro Jahr</div>
+        </div>
+        <div class="pc-savings-amount">−150 <span class="pc-savings-unit">€/Mo.</span></div>
+      </div>
+    </div>
+
+  </div>
+  <p style="font-size:0.7rem;color:var(--muted);margin-top:0.9rem;">* Beispielwerte auf Basis repräsentativer Tarife. Ihr individueller Beitrag kann abweichen.</p>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- WHY PKV -->
+<div class="section">
+  <div class="section-kicker">Warum PKV?</div>
+  <h2 class="section-title">Beamte zahlen bis zu 50 % weniger — ohne Abstriche.</h2>
+  <p class="section-sub">Der Staat übernimmt als Dienstherr einen Teil Ihrer Krankenkosten. Sie versichern nur den Rest — und sparen dabei erheblich.</p>
+
+  <div class="why-grid">
+    <div class="why-card reveal-item">
+      <span class="why-num">01</span>
+      <div class="why-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+      </div>
+      <h3>Beihilfe senkt Ihren Beitrag</h3>
+      <p>Als Beamter erhalten Sie 50–90 % Ihrer Arztkosten vom Dienstherren erstattet. Ihre PKV deckt nur den Rest — das senkt Ihren Beitrag massiv.</p>
+    </div>
+    <div class="why-card reveal-item">
+      <span class="why-num">02</span>
+      <div class="why-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+      </div>
+      <h3>Bessere Leistungen als GKV</h3>
+      <p>Chefarztbehandlung, Einzelzimmer, modernste Heilmethoden und kürzere Wartezeiten — Leistungsumfang, den die GKV so nicht bietet.</p>
+    </div>
+    <div class="why-card reveal-item">
+      <span class="why-num">03</span>
+      <div class="why-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      </div>
+      <h3>Günstiger Einstieg als Junger</h3>
+      <p>Je jünger und gesünder Sie einsteigen, desto günstiger bleibt Ihr Beitrag. Als Beamtenanwärter ist der Zeitpunkt besonders ideal.</p>
+    </div>
+    <div class="why-card reveal-item">
+      <span class="why-num">04</span>
+      <div class="why-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </div>
+      <h3>Breite Marktauswahl</h3>
+      <p>Über 40 private Krankenversicherer mit hunderten Tarifen — wir kennen den Markt und finden das Angebot, das zu Ihrer Situation passt.</p>
+    </div>
+    <div class="why-card reveal-item">
+      <span class="why-num">05</span>
+      <div class="why-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.32 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      </div>
+      <h3>Persönlich, kein Callcenter</h3>
+      <p>Kein Callcenter, kein Verkaufsdruck. Sie sprechen direkt mit einem Spezialisten, der Ihre Fragen beantwortet — ohne Verpflichtung.</p>
+    </div>
+    <div class="why-card reveal-item">
+      <span class="why-num">06</span>
+      <div class="why-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      </div>
+      <h3>Individuelle Beratung</h3>
+      <p>Wir arbeiten mit über 40 Versicherern zusammen und vergleichen gezielt für Ihre Situation. Unser Ziel: das Angebot finden, das wirklich zu Ihnen passt.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="quote-section">
+  <div class="quote-inner">
+
+    <!-- ProvenExpert Siegel -->
+    <div>
+      <div class="quote-kicker">Verifizierte Bewertungen</div>
+      <a class="pe-badge-link"
+         href="https://www.provenexpert.com/de-de/aventus-versicherungsmakler-augsburg-ag/"
+         target="_blank" rel="noopener" title="Kundenbewertungen &amp; Erfahrungen zu Aventus Versicherungsmakler Augsburg AG">
+        <div class="pe-badge">
+          <div class="pe-company-name">Aventus Versicherungsmakler<br>Augsburg AG</div>
+          <div class="pe-brand-bar">
+            <div class="pe-check-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <div>
+              <div class="pe-brand-text">ProvenExpert</div>
+              <div class="pe-brand-sub">Kundenbewertungen</div>
+            </div>
+          </div>
+          <div class="pe-body">
+            <div class="pe-stars">★★★★★</div>
+            <div class="pe-rating-text">Sehr gut</div>
+            <div class="pe-rec">99 % Empfehlungen</div>
+            <div class="pe-count">489 Kundenbewertungen</div>
+          </div>
+          <div class="pe-footer">
+            <span class="pe-date">15.06.2026</span>
+            <span class="pe-more">Mehr Infos &rsaquo;</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Quotes -->
+    <div>
+      <div class="quote-kicker">Was Kunden sagen</div>
+      <blockquote>
+        „Sehr kompetente und freundliche Menschen mit enorm hohem Dienstleistungsbewusstsein. Kann ich bestens weiterempfehlen."
+      </blockquote>
+      <div class="quote-author">
+        <div class="quote-avatar">SF</div>
+        <div>
+          <div class="quote-name">Stefan F.</div>
+          <div class="quote-stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="mini-reviews">
+        <div class="mini-review">
+          <div class="mini-review-head">
+            <div class="mini-avatar">AB</div>
+            <div>
+              <div class="mini-review-name">Alexander B.</div>
+              <div class="mini-review-stars">★★★★★</div>
+            </div>
+          </div>
+          <div class="mini-review-text">„Tolles Team und kompetente Mitarbeiter! Fühle mich sehr gut aufgehoben."</div>
+        </div>
+        <div class="mini-review">
+          <div class="mini-review-head">
+            <div class="mini-avatar">EK</div>
+            <div>
+              <div class="mini-review-name">Ernesto K.</div>
+              <div class="mini-review-stars">★★★★★</div>
+            </div>
+          </div>
+          <div class="mini-review-text">„Tolles Team, toller Service, sehr kompetent — nur zu empfehlen!"</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="steps-section">
+  <div class="section">
+    <div class="section-kicker">So funktioniert's</div>
+    <h2 class="section-title">In 3 Schritten zum richtigen Tarif.</h2>
+
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <h3>Formular ausfüllen</h3>
+        <p>2 Minuten, keine langen Fragebögen. Nur das Nötigste, damit wir Ihre Situation verstehen.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <h3>Persönliches Gespräch</h3>
+        <p>Wir rufen Sie zurück — kostenlos, unverbindlich. Kein Druck, keine Verkaufsgespräche.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <h3>Ihr individuelles Angebot</h3>
+        <p>Wir schicken Ihnen einen übersichtlichen Vergleich passend zu Ihrer Situation und Ihrem Budget.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+  <div class="section-kicker">Häufige Fragen</div>
+  <h2 class="section-title">Was Beamte am häufigsten fragen.</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
+        Was ist Beihilfe und wie viel bekomme ich?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-a">Die Beihilfe ist eine staatliche Unterstützung für Beamte bei Krankheitskosten. Als Beamter erhalten Sie in der Regel 50 % Ihrer Arztkosten vom Dienstherren erstattet — je nach Bundesland bis zu 90 %. Den Rest deckt Ihre private Krankenversicherung ab — deshalb sind die Beiträge für Beamte so günstig.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
+        Kann ich als Beamter auch in der GKV bleiben?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-a">Ja, das ist möglich — aber finanziell meist nachteilig. Als GKV-Mitglied erhalten Sie keine Beihilfe und müssen den vollen Beitrag selbst zahlen. Die meisten Beamten fahren mit einer PKV deutlich günstiger und bekommen gleichzeitig bessere Leistungen.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
+        Wann ist der beste Zeitpunkt für den PKV-Wechsel?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-a">So früh wie möglich — am besten bereits als Beamtenanwärter. Je jünger und gesünder Sie beim Einstieg sind, desto günstiger bleibt Ihr Beitrag. Vorerkrankungen können später die Aufnahme erschweren oder zu Risikozuschlägen führen.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
+        Ist die Beratung wirklich kostenlos?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-a">Ja, absolut. Als Makler werden wir im Abschlussfall vom Versicherer vergütet — für Sie entstehen keinerlei Kosten. Auch wenn Sie sich gegen einen Abschluss entscheiden, ist die Beratung vollständig kostenlos und unverbindlich.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
+        Was passiert mit meinen Daten?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-a">Ihre Daten werden ausschließlich für die Beratung genutzt und nicht an Dritte verkauft. Wir verarbeiten Ihre Angaben gemäß DSGVO ausschließlich zur Vorbereitung und Durchführung Ihrer persönlichen Beratung.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
+        Welche Unterlagen brauche ich für die Beratung?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-a">Für das erste Gespräch gar nichts. Wir informieren Sie zunächst und erklären Ihre Optionen. Für konkrete Angebote benötigen wir lediglich Ihren Beihilfesatz und Angaben zu Vorerkrankungen — das besprechen wir gemeinsam.</div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="bottom-cta-wrap">
+  <div class="bottom-cta">
+    <h2>Bereit für Ihre bessere Krankenversicherung?</h2>
+    <p>Kostenlos Tarife vergleichen — kein Risiko, keine Verpflichtung.</p>
+    <a href="#formular" class="btn-cta-white">
+      Jetzt kostenlos anfragen
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Aventus Maklergruppe. Alle Rechte vorbehalten.</p>
+  <div class="footer-links">
+    <a href="https://www.augsburg.aventusgruppe.de/impressum-919888.html" target="_blank" rel="noopener">Impressum</a>
+    <a href="https://www.augsburg.aventusgruppe.de/datenschutz-0-p11.html" target="_blank" rel="noopener">Datenschutz</a>
+    <a href="https://www.augsburg.aventusgruppe.de/content/erstinformation-22275790.pdf?v=1759248033" target="_blank" rel="noopener">Erstinformation</a>
+    <a href="https://www.augsburg.aventusgruppe.de/kontakt-919901.html" target="_blank" rel="noopener">Kontakt</a>
+  </div>
+</footer>
+
+</div><!-- END MAIN PAGE -->
+
+<!-- THANK YOU PAGE -->
+<div id="thank-you">
+  <div class="check-circle">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+  </div>
+  <h1>Vielen Dank!</h1>
+  <p>Ihre Anfrage ist bei uns eingegangen. Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen.</p>
+  <div class="ty-steps">
+    <div class="ty-step"><div class="ty-step-num">1</div><span>Sie erhalten in Kürze eine Bestätigungs-E-Mail.</span></div>
+    <div class="ty-step"><div class="ty-step-num">2</div><span>Wir schicken Ihnen Ihren persönlichen Tarifvergleich zu.</span></div>
+  </div>
+</div>
+
+<script>
+  let currentStep = 1;
+  let currentStepId = 'step1';
+  let beihilfeWeg = 'ja';
+  const totalSteps = 6;
+  const selections = {};
+  const extras = new Set();
+
+  const stepOrder = {
+    'step1': 1, 'step2': 2, 'step3a': 3, 'step3b': 3, 'step4': 4, 'step5': 5, 'step6': 6
+  };
+  const stepLabels = {
+    'step1': 'Ihr Status', 'step2': 'Beihilfe', 'step3a': 'Beihilfesatz',
+    'step3b': 'Heilfürsorge', 'step4': 'Zusatzleistungen', 'step5': 'Ihre Situation', 'step6': 'Kontaktdaten'
+  };
+
+  function selectOption(el) {
+    const group = el.dataset.group;
+    document.querySelectorAll(`[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    selections[group] = el.dataset.val;
+  }
+
+  function toggleExtra(el) {
+    const key = el.dataset.multi;
+    if (el.classList.contains('selected')) {
+      el.classList.remove('selected');
+      extras.delete(key);
+    } else {
+      el.classList.add('selected');
+      extras.add(key);
+    }
+  }
+
+  function goBeihilfeStep(val) {
+    beihilfeWeg = val;
+    switchToStep(val === 'ja' ? 'step3a' : 'step3b');
+  }
+
+  function goStep(n) {
+    const idMap = { 1:'step1', 2:'step2', 3: beihilfeWeg === 'ja' ? 'step3a' : 'step3b', 4:'step4', 5:'step5', 6:'step6' };
+    switchToStep(idMap[n]);
+  }
+
+  function goBack4() {
+    switchToStep(beihilfeWeg === 'ja' ? 'step3a' : 'step3b');
+  }
+
+  function switchToStep(newId) {
+    const oldStep = document.getElementById(currentStepId);
+    const newStep = document.getElementById(newId);
+    const isForward = stepOrder[newId] >= stepOrder[currentStepId];
+
+    oldStep.classList.remove('active', 'from-left', 'from-right');
+
+    currentStepId = newId;
+    currentStep = stepOrder[newId];
+
+    newStep.classList.remove('from-left', 'from-right');
+    newStep.classList.add('active', isForward ? 'from-right' : 'from-left');
+
+    updateProgress();
+    document.getElementById('formular').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function updateProgress() {
+    for (let i = 1; i <= totalSteps; i++) {
+      const seg = document.getElementById('seg' + i);
+      if (i < currentStep)        seg.className = 'progress-seg done';
+      else if (i === currentStep) seg.className = 'progress-seg active';
+      else                        seg.className = 'progress-seg';
+    }
+    document.getElementById('step-label').textContent =
+      'Schritt ' + currentStep + ' von ' + totalSteps + ' — ' + stepLabels[currentStepId];
+  }
+
+  // ── STEP VALIDATION ────────────────────────
+  function validateStep(stepId) {
+    let valid = true;
+
+    function markInvalid(el) {
+      shake(el);
+      if (el.tagName === 'SELECT' || el.tagName === 'INPUT') {
+        el.style.borderColor = '#ef4444';
+        el.addEventListener('change', () => el.style.borderColor = '', { once: true });
+        el.addEventListener('input',  () => el.style.borderColor = '', { once: true });
+      }
+      valid = false;
+    }
+
+    if (stepId === 'step1') {
+      if (!selections['status']) {
+        markInvalid(document.querySelector('#step1 [data-group="status"]').closest('.field'));
+      }
+      const bl = document.getElementById('bundesland');
+      if (!bl.value) markInvalid(bl);
+      ['geb-tag','geb-monat','geb-jahr'].forEach(id => {
+        const inp = document.getElementById(id);
+        if (!inp.value.trim()) markInvalid(inp);
+      });
+    }
+
+    if (stepId === 'step3b') {
+      if (!selections['heilfuersorge']) {
+        markInvalid(document.querySelector('#step3b [data-group="heilfuersorge"]').closest('.field'));
+      }
+    }
+
+    if (stepId === 'step4') {
+      if (!selections['zimmer']) {
+        markInvalid(document.querySelector('#step4 [data-group="zimmer"]').closest('.field'));
+      }
+    }
+
+    if (stepId === 'step5') {
+      if (!selections['situation']) {
+        markInvalid(document.querySelector('#step5 [data-group="situation"]').closest('.field'));
+      }
+      if (!selections['kinder']) {
+        markInvalid(document.querySelector('#step5 [data-group="kinder"]').closest('.field'));
+      }
+    }
+
+    return valid;
+  }
+
+  function tryGoStep(n) {
+    if (validateStep(currentStepId)) goStep(n);
+  }
+
+  // ── SHAKE UTILITY ──────────────────────────
+  function shake(el) {
+    el.classList.remove('shake');
+    void el.offsetWidth; // force reflow to restart animation
+    el.classList.add('shake');
+    el.addEventListener('animationend', () => el.classList.remove('shake'), { once: true });
+  }
+
+  function submitForm() {
+    const vorname = document.getElementById('vorname');
+    const email   = document.getElementById('email');
+    const telefon = document.getElementById('telefon');
+    const dsgvo   = document.getElementById('dsgvo');
+    let valid = true;
+
+    let firstInvalid = null;
+    [vorname, email, telefon].forEach(input => {
+      if (!input.value.trim()) {
+        shake(input);
+        input.style.borderColor = '#ef4444';
+        input.addEventListener('input', () => input.style.borderColor = '', { once: true });
+        if (!firstInvalid) firstInvalid = input;
+        valid = false;
+      }
+    });
+
+    if (!dsgvo.checked) {
+      shake(dsgvo.closest('label'));
+      if (!firstInvalid) firstInvalid = dsgvo;
+      valid = false;
+    }
+
+    if (!valid) { firstInvalid.focus(); return; }
+
+    document.getElementById('main-page').style.display = 'none';
+    document.getElementById('thank-you').classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    if (item.hasAttribute('data-open')) {
+      item.removeAttribute('data-open');
+      el.setAttribute('aria-expanded', 'false');
+    } else {
+      document.querySelectorAll('.faq-item[data-open]').forEach(i => {
+        i.removeAttribute('data-open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      item.setAttribute('data-open', '');
+      el.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  // ── NUMBER TICKER ──────────────────────────
+  function animateTicker(el) {
+    const target   = parseInt(el.dataset.ticker, 10);
+    const prefix   = el.dataset.prefix  || '';
+    const suffix   = el.dataset.suffix  || '';
+    const duration = 1400;
+    const startTs  = performance.now();
+
+    function tick(now) {
+      const t = Math.min((now - startTs) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+      el.textContent = prefix + Math.round(eased * target) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // ── INTERSECTION OBSERVERS ─────────────────
+  const tickerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateTicker(entry.target);
+        tickerObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-ticker]').forEach(el => tickerObserver.observe(el));
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal-item').forEach(el => revealObserver.observe(el));
+
+  // ── SMOOTH ANCHOR SCROLL ───────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+</body>
+</html>
