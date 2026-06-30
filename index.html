@@ -2288,14 +2288,27 @@ function handleSubmit(e) {
     return;
   }
 
-  // Show thank you
-  document.getElementById('main-form').submit();
-  return;
-  document.getElementById('main-form').style.display = 'none';
-  document.querySelector('.progress-wrap').style.display = 'none';
-  document.querySelector('.form-card-header').style.display = 'none';
-  document.getElementById('thank-you').style.display = 'block';
-  document.getElementById('formular').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Formular per fetch an Formspree senden, dann Danke-Seite zeigen
+  var form = document.getElementById('main-form');
+  var btn = document.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.textContent = 'Wird gesendet …';
+
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(function(response) {
+    form.style.display = 'none';
+    document.querySelector('.progress-wrap').style.display = 'none';
+    document.querySelector('.form-card-header').style.display = 'none';
+    document.getElementById('thank-you').style.display = 'block';
+    document.getElementById('formular').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }).catch(function() {
+    btn.disabled = false;
+    btn.textContent = 'Jetzt kostenlos anfragen';
+    alert('Fehler beim Senden. Bitte versuchen Sie es erneut oder rufen Sie uns an.');
+  });
 }
 
 // ---- Scroll Reveal ----
