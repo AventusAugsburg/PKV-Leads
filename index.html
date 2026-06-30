@@ -2289,6 +2289,8 @@ function handleSubmit(e) {
   }
 
   // Show thank you
+  document.getElementById('main-form').submit();
+  return;
   document.getElementById('main-form').style.display = 'none';
   document.querySelector('.progress-wrap').style.display = 'none';
   document.querySelector('.form-card-header').style.display = 'none';
