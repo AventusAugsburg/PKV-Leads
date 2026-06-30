@@ -2098,9 +2098,10 @@ function selectRadio(label, name) {
 
 // ---- Checkbox ----
 function toggleCheckbox(label) {
-  label.classList.toggle('selected');
-  var cb = label.querySelector('input[type="checkbox"]');
-  cb.checked = !cb.checked;
+  setTimeout(function() {
+    var cb = label.querySelector('input[type="checkbox"]');
+    label.classList.toggle('selected', cb.checked);
+  }, 0);
 }
 
 // ---- GDPR ----
