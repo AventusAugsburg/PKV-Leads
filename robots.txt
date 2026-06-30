@@ -1,0 +1,56 @@
+# robots.txt — Aventus Maklergruppe
+# Stand: Juni 2026
+# Strategie: Google & KI-Suche/Zitate ERLAUBEN, Modelltraining optional ablehnen
+# Hinweis: robots.txt ist eine höfliche Bitte — kein technischer Schutz.
+# Für hartes Blockieren: WAF-/CDN-Regeln (z. B. Cloudflare "AI Scrapers"-Kategorie deaktivieren).
+
+# --- Google: niemals aussperren ---
+User-agent: Googlebot
+Allow: /
+
+# Google KI-Training Opt-out (schadet dem Google-Such-Ranking NICHT)
+User-agent: Google-Extended
+Disallow: /
+
+# --- OpenAI / ChatGPT ---
+# OAI-SearchBot = ChatGPT-Suche & Zitate ERLAUBEN (Sichtbarkeit in KI-Antworten)
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+# GPTBot = Training (ablehnen)
+User-agent: GPTBot
+Disallow: /
+
+# --- Anthropic / Claude ---
+# Claude-SearchBot & Claude-Web = Live-Retrieval/Zitate ERLAUBEN
+# Hinweis: Beide User-Agents werden von verschiedenen Quellen genannt — beide gesetzt.
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: Claude-User
+Allow: /
+# ClaudeBot = Training (ablehnen)
+User-agent: ClaudeBot
+Disallow: /
+
+# --- Perplexity ---
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# --- Common Crawl (Training vieler Modelle) ---
+User-agent: CCBot
+Disallow: /
+
+# --- Bekannt nicht-konform / hohes Bot-Aufkommen ---
+User-agent: Bytespider
+Disallow: /
+
+# --- Alle anderen Bots: Standard-Zugang ---
+User-agent: *
+Allow: /
+
+Sitemap: https://www.augsburg.aventusgruppe.de/sitemap.xml
